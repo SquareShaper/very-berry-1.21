@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "very-berry:block/rime_berry_bush_age0"
+  }
+}

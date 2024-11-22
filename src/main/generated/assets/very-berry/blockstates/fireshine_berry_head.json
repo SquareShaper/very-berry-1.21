@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "berries=false": {
+      "model": "very-berry:block/fireshine_berry_head"
+    },
+    "berries=true": {
+      "model": "very-berry:block/fireshine_berry_head_lit"
+    }
+  }
+}

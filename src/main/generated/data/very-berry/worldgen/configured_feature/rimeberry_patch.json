@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": "very-berry:rimeberry",
+    "tries": 64,
+    "xz_spread": 8,
+    "y_spread": 3
+  }
+}

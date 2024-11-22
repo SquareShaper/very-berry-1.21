@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "very-berry:block/fireshine_berry_body_lit"
+  }
+}

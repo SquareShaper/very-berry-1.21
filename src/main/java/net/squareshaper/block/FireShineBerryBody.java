@@ -13,6 +13,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.squareshaper.registry.ModBlocks;
+import net.squareshaper.registry.ModItems;
 
 public class FireShineBerryBody extends AbstractPlantBlock implements Fertilizable, NetherVines {
     public static final MapCodec<FireShineBerryBody> CODEC = createCodec(FireShineBerryBody::new);
@@ -24,7 +26,7 @@ public class FireShineBerryBody extends AbstractPlantBlock implements Fertilizab
 
     public FireShineBerryBody(Settings settings) {
         super(settings, Direction.DOWN, SHAPE, false);
-        this.setDefaultState(this.stateManager.getDefaultState().with(BERRIES, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateManager.getDefaultState().with(BERRIES, false));
     }
 
     @Override
@@ -34,7 +36,7 @@ public class FireShineBerryBody extends AbstractPlantBlock implements Fertilizab
 
     @Override
     protected BlockState copyState(BlockState from, BlockState to) {
-        return to.with(BERRIES, (Boolean)from.get(BERRIES));
+        return to.with(BERRIES, from.get(BERRIES));
     }
 
     @Override
@@ -64,6 +66,6 @@ public class FireShineBerryBody extends AbstractPlantBlock implements Fertilizab
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos, state.with(BERRIES, Boolean.valueOf(true)), Block.NOTIFY_LISTENERS);
+        world.setBlockState(pos, state.with(BERRIES, true), Block.NOTIFY_LISTENERS);
     }
 }

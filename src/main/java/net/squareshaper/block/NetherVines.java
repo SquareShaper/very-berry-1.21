@@ -14,6 +14,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import net.squareshaper.registry.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.ToIntFunction;
@@ -23,11 +24,11 @@ public interface NetherVines {
     BooleanProperty BERRIES = Properties.BERRIES;
 
     static ActionResult pickBerries(@Nullable Entity picker, BlockState state, World world, BlockPos pos) {
-        if ((Boolean)state.get(BERRIES)) {
+        if (state.get(BERRIES)) {
             Block.dropStack(world, pos, new ItemStack(ModItems.FIRESHINE_BERRIES, 1));
             float f = MathHelper.nextBetween(world.random, 0.8F, 1.2F);
             world.playSound(null, pos, SoundEvents.BLOCK_CAVE_VINES_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, f);
-            BlockState blockState = state.with(BERRIES, Boolean.valueOf(false));
+            BlockState blockState = state.with(BERRIES, false);
             world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(picker, blockState));
             return ActionResult.success(world.isClient);
@@ -37,7 +38,7 @@ public interface NetherVines {
     }
 
     static boolean hasBerries(BlockState state) {
-        return state.contains(BERRIES) && (Boolean)state.get(BERRIES);
+        return state.contains(BERRIES) && state.get(BERRIES);
     }
 
     static ToIntFunction<BlockState> getLuminanceSupplier(int luminance) {

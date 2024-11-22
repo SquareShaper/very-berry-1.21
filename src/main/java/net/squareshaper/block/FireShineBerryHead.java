@@ -16,6 +16,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
+import net.squareshaper.registry.ModBlocks;
+import net.squareshaper.registry.ModItems;
 
 public class FireShineBerryHead extends AbstractPlantStemBlock implements Fertilizable, NetherVines {
     public static final MapCodec<FireShineBerryHead> CODEC = createCodec(FireShineBerryHead::new);
@@ -28,7 +30,7 @@ public class FireShineBerryHead extends AbstractPlantStemBlock implements Fertil
 
     public FireShineBerryHead(Settings settings) {
         super(settings, Direction.DOWN, SHAPE, false, 0.1);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, Integer.valueOf(0)).with(BERRIES, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(BERRIES, false));
     }
 
     @Override
@@ -48,12 +50,12 @@ public class FireShineBerryHead extends AbstractPlantStemBlock implements Fertil
 
     @Override
     protected BlockState copyState(BlockState from, BlockState to) {
-        return to.with(BERRIES, (Boolean)from.get(BERRIES));
+        return to.with(BERRIES, from.get(BERRIES));
     }
 
     @Override
     protected BlockState age(BlockState state, Random random) {
-        return super.age(state, random).with(BERRIES, Boolean.valueOf(random.nextFloat() < 0.11F));
+        return super.age(state, random).with(BERRIES, random.nextFloat() < 0.11F);
     }
 
     @Override
@@ -84,6 +86,6 @@ public class FireShineBerryHead extends AbstractPlantStemBlock implements Fertil
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos, state.with(BERRIES, Boolean.valueOf(true)), Block.NOTIFY_LISTENERS);
+        world.setBlockState(pos, state.with(BERRIES, true), Block.NOTIFY_LISTENERS);
     }
 }
