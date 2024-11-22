@@ -3,13 +3,13 @@
 	"id": "very-berry",
 	"version": "${version}",
 	"name": "Very Berry",
-	"description": "Adds a 2 new berries to Minecraft, along with some food items based on them. ",
+	"description": "Adds 2 new berries to Minecraft, along with some food items based on them. ",
 	"authors": [
 		"SquareShaper"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/SquareShaper/",
+		"sources": "https://github.com/SquareShaper/very-berry-1.21"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/very-berry/icon.png",
