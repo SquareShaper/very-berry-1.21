@@ -3,7 +3,7 @@
 	"id": "very-berry",
 	"version": "${version}",
 	"name": "Very Berry",
-	"description": "Adds 2 new berries to Minecraft, along with some food items based on them. ",
+	"description": "Adds 2 new berries to Minecraft!",
 	"authors": [
 		"SquareShaper"
 	],
@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/SquareShaper/",
 		"sources": "https://github.com/SquareShaper/very-berry-1.21"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/very-berry/icon.png",
 	"environment": "*",
 	"entrypoints": {
