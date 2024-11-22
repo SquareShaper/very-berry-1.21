@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fireshine_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": "very-berry:fireshine_berries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "very-berry:rimeberry_muffin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fireshine_berries"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "very-berry:rimeberry_muffin"
+    ]
+  }
+}

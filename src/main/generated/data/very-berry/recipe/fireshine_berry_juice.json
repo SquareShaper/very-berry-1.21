@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "very-berry:fireshine_berries"
+    },
+    {
+      "item": "very-berry:fireshine_berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "very-berry:fireshine_berries"
+    },
+    {
+      "item": "very-berry:fireshine_berries"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "very-berry:fireshine_berry_juice"
+  }
+}

@@ -1,7 +1,11 @@
 {
-  "item.termites.rimeberries": "Rimeberries",
-  "item.termites.fireshine_berries": "Fireshine Berries",
-  "block.termites.rime_berry_bush": "Rimeberry Bush",
-  "block.termites.fireshine_berry_body": "Fireshine Berry Body",
-  "block.termites.fireshine_berry_head": "Fireshine Berry Head"
+  "item.very-berry.rimeberries": "Rimeberries",
+  "item.very-berry.rimeberry_muffin": "Rimeberry Muffin",
+  "item.very-berry.fireshine_berries": "Fireshine Berries",
+  "item.very-berry.fireshine_berry_juice": "Fireshine Berry Juice",
+  "item.very-berry.fireshine_berry_juice.tooltip": "A delightfully warming juice!",
+  "block.very-berry.rime_berry_bush": "Rimeberry Bush",
+  "block.very-berry.fireshine_berry_body": "Fireshine Berry Body",
+  "block.very-berry.fireshine_berry_head": "Fireshine Berry Head",
+  "tooltip.very-berry.effect": "%1$s%2$s (%3$s)"
 }
