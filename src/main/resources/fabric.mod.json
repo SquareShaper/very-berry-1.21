@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "very-berry",
+	"version": "${version}",
+	"name": "Very Berry",
+	"description": "Adds a 2 new berries to Minecraft, along with some food items based on them. ",
+	"authors": [
+		"SquareShaper"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/very-berry/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.squareshaper.VeryBerry"
+		],
+		"fabric-datagen": [
+			"net.squareshaper.VeryBerryDataGenerator"
+		]
+	},
+	"mixins": [
+		"very-berry.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
