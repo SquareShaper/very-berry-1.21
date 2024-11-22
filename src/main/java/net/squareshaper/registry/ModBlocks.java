@@ -1,12 +1,7 @@
 package net.squareshaper.registry;
 
-import com.squareshaper.termites.Termites;
-import com.squareshaper.termites.block.custom.FireShineBerryBody;
-import com.squareshaper.termites.block.custom.FireShineBerryHead;
-import com.squareshaper.termites.block.custom.RimeBerryBushBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.CaveVines;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
@@ -14,6 +9,11 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.squareshaper.VeryBerry;
+import net.squareshaper.block.FireShineBerryBody;
+import net.squareshaper.block.FireShineBerryHead;
+import net.squareshaper.block.NetherVines;
+import net.squareshaper.block.RimeBerryBushBlock;
 
 public class ModBlocks {
     public static final Block RIMEBERRY_BUSH = registerBlock("rime_berry_bush",
@@ -25,7 +25,7 @@ public class ModBlocks {
             new FireShineBerryBody(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_RED)
                     .noCollision()
-                    .luminance(CaveVines.getLuminanceSupplier(14))
+                    .luminance(NetherVines.getLuminanceSupplier(7))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
@@ -35,7 +35,7 @@ public class ModBlocks {
                     .mapColor(MapColor.DARK_RED)
                     .ticksRandomly()
                     .noCollision()
-                    .luminance(CaveVines.getLuminanceSupplier(14))
+                    .luminance(NetherVines.getLuminanceSupplier(7))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
@@ -44,15 +44,15 @@ public class ModBlocks {
     //Helper functions
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, Termites.id(name), block);
+        return Registry.register(Registries.BLOCK, VeryBerry.id(name), block);
     }
 
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Termites.id(name),
+        Registry.register(Registries.ITEM, VeryBerry.id(name),
                 new BlockItem(block, new Item.Settings()));
     }
 
     public static void registerModBlocks() {
-        Termites.LOGGER.info("Registering Mod Blocks for " + Termites.MOD_ID + "...");
+        VeryBerry.LOGGER.info("Registering Blocks for " + VeryBerry.MOD_ID + "...");
     }
 }

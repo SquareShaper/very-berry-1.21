@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"net.squareshaper.VeryBerryDataGenerator"
+		],
+		"client": [
+			"net.squareshaper.VeryBerryClient"
 		]
 	},
 	"mixins": [
@@ -30,8 +33,5 @@
 		"minecraft": "~1.21",
 		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }

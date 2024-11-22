@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+import net.squareshaper.registry.ModItems;
 
 public class RimeBerryBushBlock extends BerryBushBlock {
     public RimeBerryBushBlock(Settings settings) {

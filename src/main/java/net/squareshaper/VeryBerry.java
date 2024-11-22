@@ -1,8 +1,11 @@
 package net.squareshaper;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.util.Identifier;
+import net.squareshaper.registry.ModBlocks;
+import net.squareshaper.registry.ModFoodComponents;
+import net.squareshaper.registry.ModItems;
+import net.squareshaper.worldgen.ModBiomeModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +19,9 @@ public class VeryBerry implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModBlocks.registerModBlocks();
+		ModItems.registerModItems();
+		ModFoodComponents.registerModFoodComponents();
+		ModBiomeModifiers.registerBiomeModifiers();
 	}
 }
