@@ -33,7 +33,7 @@ Made with 2 pieces of Wheat, 2 Rimeberries and a Bucket of Milk. (You get the Bu
 <img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/RimeberryMuffin.png?raw=true" alt="A sprite showing the Rimeberry Muffin">
 
 ### RECIPE
-<img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/RimeberryMuffinRecipe.png?raw=true" alt="The crafting recipe for the Rimeberry Muffin">
+<img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/RimeberryMuffinRecipe_cropped.png?raw=true" alt="The crafting recipe for the Rimeberry Muffin">
 
 ## Fireshine Berry Juice
 Juicing these berries not only increases their nutritional value, but also prolongs the Fire Resistance effect they give!
@@ -43,4 +43,4 @@ Made with 4 Fireshine Berries, some Sugar and a Glass Bottle to drink it from.
 <img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/FireshineBerryJuice.png?raw=true" alt="A sprite showing the Fireshine Berry Juice">
 
 ### RECIPE
-<img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/FireshineBerryJuice.png?raw=true" alt="The crafting recipe for the Fireshine Berry Juice">
+<img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/FireshineBerryJuiceRecipe_cropped.png?raw=true" alt="The crafting recipe for the Fireshine Berry Juice">
