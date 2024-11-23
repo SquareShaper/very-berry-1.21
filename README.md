@@ -8,6 +8,7 @@ Adds 2 new berries to the game - the Rimeberry and the Fireshine Berry.
 Can be found in snowy biomes, like Jagged Peaks and Snowy Slopes. The berries grow on a bush like Sweet Berries, but the bush can only grow on snow blocks! Rimeberries give a very short Resistance buff when consumed. 
 
 ### PICTURE SPRITE
+<img src="https://github.com/SquareShaper/very-berry-1.21/blob/master/PageAssets/Rimeberries.png?raw=true">
 
 ### PICTURE BUSH
 
