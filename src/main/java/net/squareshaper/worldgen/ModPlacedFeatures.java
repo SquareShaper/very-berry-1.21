@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -34,7 +35,7 @@ public class ModPlacedFeatures {
         register(context, FIRESHINE_BERRY_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.FIRESHINE_BERRY_KEY),
                 List.of(CountPlacementModifier.of(188),
                         SquarePlacementModifier.of(),
-                        PlacedFeatures.BOTTOM_TO_TOP_RANGE,
+                        HeightRangePlacementModifier.uniform(YOffset.belowTop(40), YOffset.TOP),
                         EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.IS_AIR, 20),
                         RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)),
                         BiomePlacementModifier.of()));

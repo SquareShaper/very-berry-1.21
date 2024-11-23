@@ -1,7 +1,7 @@
-// 1.21	2024-11-23T00:49:17.121008289	Very Berry/ModRegistryDataGenerator
-46f3e0a41bc2319ec70e659943fa7b354fdecc91 data/very-berry/worldgen/placed_feature/fireshine_berry.json
-4bc602d20a220b9ef507542bcb84301118716d31 data/very-berry/worldgen/configured_feature/rimeberry.json
+// 1.21	2024-11-23T11:09:56.856325043	Very Berry/ModRegistryDataGenerator
+701cc848f016069f1a742aeb21bca37871344da0 data/very-berry/worldgen/placed_feature/fireshine_berry.json
 d8cafde7c46d2adcc768def3011e37c354d61e64 data/very-berry/worldgen/configured_feature/fireshine_berry.json
+aaaf64f92a669a81345ab0e67af04b575908b9f0 data/very-berry/worldgen/configured_feature/rimeberry.json
 3150e8a7fd5f3ce25cfbe95dc0041d50949ec871 data/very-berry/worldgen/placed_feature/rimeberry.json
-b54e406a4e1e7850b82a6a9700a92428099a625e data/very-berry/worldgen/configured_feature/rimeberry_patch.json
+14a7813957c2eab48de8fba1eacb2dd27e2f45f8 data/very-berry/worldgen/configured_feature/rimeberry_patch.json
 ccb25229ba9718d029e4a60b43201784ec538f8b data/very-berry/worldgen/placed_feature/rimeberry_patch.json

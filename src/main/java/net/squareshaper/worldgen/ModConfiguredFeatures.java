@@ -14,10 +14,10 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.intprovider.WeightedListIntProvider;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.RandomizedIntBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.squareshaper.VeryBerry;
+import net.squareshaper.block.BerryBushBlock;
 import net.squareshaper.block.FireShineBerryHead;
 import net.squareshaper.block.NetherVines;
 import net.squareshaper.registry.ModBlocks;
@@ -32,8 +32,12 @@ public class ModConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 
-        register(context, RIMEBERRY_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.RIMEBERRY_BUSH)));
-        register(context, RIMEBERRY_PATCH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 8, 3, registryLookup.getOrThrow(ModPlacedFeatures.RIMEBERRY_KEY)));
+        register(context, RIMEBERRY_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(
+                DataPool.<BlockState>builder().add(ModBlocks.RIMEBERRY_BUSH.getDefaultState(), 4)
+                        .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 1), 3)
+                        .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 2), 3)
+                        .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3), 2))));
+        register(context, RIMEBERRY_PATCH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 8, 8, registryLookup.getOrThrow(ModPlacedFeatures.RIMEBERRY_KEY)));
 
 
         WeightedBlockStateProvider fireShineWeightedBlockStateProvider = new WeightedBlockStateProvider(
