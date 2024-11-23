@@ -2,7 +2,7 @@
 
 ## Features
 Adds 2 new berries to the game - the Rimeberry and the Fireshine Berry. 
-
+  
 # Berries
 ## Rimeberry
 Can be found in snowy biomes, like Jagged Peaks and Snowy Slopes. The berries grow on a bush like Sweet Berries, but the bush can only grow on snow blocks! Rimeberries give a very short Resistance buff when consumed. 
