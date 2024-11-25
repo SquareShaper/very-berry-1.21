@@ -10,17 +10,17 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "very-berry:rime_berry_bush",
+          "block": "very-berry:fireshine_berry_head",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "3"
+            "berries": "true"
           }
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "very-berry:rimeberries"
+          "name": "very-berry:fireshine_berries"
         }
       ],
       "functions": [
@@ -28,7 +28,7 @@
           "add": false,
           "count": {
             "type": "minecraft:uniform",
-            "max": 4.0,
+            "max": 3.0,
             "min": 1.0
           },
           "function": "minecraft:set_count"

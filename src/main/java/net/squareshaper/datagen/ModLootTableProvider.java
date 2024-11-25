@@ -17,6 +17,8 @@ import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.squareshaper.block.BerryBushBlock;
+import net.squareshaper.block.NetherVines;
+import net.squareshaper.block.RimeBerryBushBlock;
 import net.squareshaper.registry.ModBlocks;
 import net.squareshaper.registry.ModItems;
 
@@ -29,10 +31,27 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.RIMEBERRY_BUSH, berryDrops(ModBlocks.RIMEBERRY_BUSH, ModItems.RIMEBERRIES, 3, 4, 3));
+        addDrop(ModBlocks.RIMEBERRY_BUSH, berryBushDrops(ModBlocks.RIMEBERRY_BUSH, ModItems.RIMEBERRIES, RimeBerryBushBlock.getMinDrops(),
+                RimeBerryBushBlock.getMaxDrops(), RimeBerryBushBlock.getHarvestAge()));
+
+        addDrop(ModBlocks.FIRESHINE_BERRY_BODY, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_BODY, ModItems.FIRESHINE_BERRIES, 1, 3));
+        addDrop(ModBlocks.FIRESHINE_BERRY_HEAD, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_HEAD, ModItems.FIRESHINE_BERRIES, 1, 3));
     }
 
-    public LootTable.Builder berryDrops(Block block, Item item, float minDrops, float maxDrops, int harvestAge) {
+    public LootTable.Builder fireshineBerryDrops(Block block, Item item, float minDrops, float maxDrops) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
+        return this.applyExplosionDecay(block, LootTable.builder()
+                .pool(LootPool.builder().conditionally(
+                                BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(NetherVines.BERRIES, true)))
+                        .with(ItemEntry.builder(item))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
+                )
+        );
+    }
+
+    public LootTable.Builder berryBushDrops(Block block, Item item, float minDrops, float maxDrops, int harvestAge) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
 
         return this.applyExplosionDecay(block, LootTable.builder()
@@ -40,12 +59,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                                 BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(BerryBushBlock.AGE, harvestAge)))
                         .with(ItemEntry.builder(item))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
-                        .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
-                )
-                .pool(LootPool.builder().conditionally(
-                                BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(BerryBushBlock.AGE, harvestAge-1)))
-                        .with(ItemEntry.builder(item))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)))
                         .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
                 )
         );

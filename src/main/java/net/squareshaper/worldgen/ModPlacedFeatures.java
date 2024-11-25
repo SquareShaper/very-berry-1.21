@@ -33,7 +33,7 @@ public class ModPlacedFeatures {
                         BiomePlacementModifier.of()));
 
         register(context, FIRESHINE_BERRY_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.FIRESHINE_BERRY_KEY),
-                List.of(CountPlacementModifier.of(188),
+                List.of(CountPlacementModifier.of(20),
                         SquarePlacementModifier.of(),
                         HeightRangePlacementModifier.uniform(YOffset.belowTop(40), YOffset.TOP),
                         EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.IS_AIR, 20),

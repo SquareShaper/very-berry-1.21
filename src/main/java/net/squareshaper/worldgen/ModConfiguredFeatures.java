@@ -1,7 +1,6 @@
 package net.squareshaper.worldgen;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
@@ -37,7 +36,9 @@ public class ModConfiguredFeatures {
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 1), 3)
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 2), 3)
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3), 2))));
-        register(context, RIMEBERRY_PATCH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 8, 8, registryLookup.getOrThrow(ModPlacedFeatures.RIMEBERRY_KEY)));
+
+        register(context, RIMEBERRY_PATCH_KEY, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(64, 8, 8,
+                registryLookup.getOrThrow(ModPlacedFeatures.RIMEBERRY_KEY)));
 
 
         WeightedBlockStateProvider fireShineWeightedBlockStateProvider = new WeightedBlockStateProvider(
@@ -50,10 +51,9 @@ public class ModConfiguredFeatures {
                         DataPool.<BlockState>builder()
                                 .add(ModBlocks.FIRESHINE_BERRY_HEAD.getDefaultState(), 4)
                                 .add(ModBlocks.FIRESHINE_BERRY_HEAD.getDefaultState().with(NetherVines.BERRIES, true), 1)
-                                .add(Blocks.AIR.getDefaultState(), 20)
                 ),
                 FireShineBerryHead.AGE,
-                UniformIntProvider.create(23, 25)
+                UniformIntProvider.create(21, 25)
         );
 
         register(context, FIRESHINE_BERRY_KEY, Feature.BLOCK_COLUMN, new BlockColumnFeatureConfig(
@@ -64,7 +64,6 @@ public class ModConfiguredFeatures {
                                                 .add(UniformIntProvider.create(0, 70), 2)
                                                 .add(UniformIntProvider.create(0, 30), 3)
                                                 .add(UniformIntProvider.create(0, 10), 10)
-                                                .add(UniformIntProvider.create(0, 0), 60)
                                                 .build()
                                 ),
                                 fireShineWeightedBlockStateProvider

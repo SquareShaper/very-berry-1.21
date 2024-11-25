@@ -25,7 +25,7 @@ public class ModBlocks {
             new FireShineBerryBody(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_RED)
                     .noCollision()
-                    .luminance(NetherVines.getLuminanceSupplier(7))
+                    .luminance(NetherVines.getLuminanceSupplier(13))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
@@ -35,7 +35,7 @@ public class ModBlocks {
                     .mapColor(MapColor.DARK_RED)
                     .ticksRandomly()
                     .noCollision()
-                    .luminance(NetherVines.getLuminanceSupplier(7))
+                    .luminance(NetherVines.getLuminanceSupplier(13))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));

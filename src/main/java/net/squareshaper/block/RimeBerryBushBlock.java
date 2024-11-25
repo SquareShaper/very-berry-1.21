@@ -13,12 +13,24 @@ public class RimeBerryBushBlock extends BerryBushBlock {
     }
 
     @Override
-    protected Item getBerryDrop() {
+    public Item getBerryDrop() {
         return ModItems.RIMEBERRIES;
     }
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.getBlock() == Blocks.SNOW_BLOCK;
+    }
+
+    public static int getMaxDrops() {
+        return 4;
+    }
+
+    public static int getMinDrops() {
+        return 1;
+    }
+
+    public static int getHarvestAge() {
+        return MAX_AGE;
     }
 }
