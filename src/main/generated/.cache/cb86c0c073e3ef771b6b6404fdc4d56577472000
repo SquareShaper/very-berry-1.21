@@ -1,8 +1,7 @@
-// 1.21	2024-11-25T18:28:55.5876764	Very Berry/Model Definitions
+// 1.21	2024-11-27T11:57:05.0036502	Very Berry/Model Definitions
 fa22be716dff7897df48c59063aca82cd5a0190e assets\very-berry\models\block\fireshine_berry_body_lit.json
-0b09fb5193eb4b6d0adb3d2120f13445b0ae6da9 assets\very-berry\models\item\fireshine_berry_body.json
-e7f884fec301f97d76174a8bcc869d0bea1ba224 assets\very-berry\models\block\rime_berry_bush_age1.json
 0c96e747df2e775f7e63e7a9ecd1590c0ec93392 assets\very-berry\models\item\fireshine_berries.json
+e7f884fec301f97d76174a8bcc869d0bea1ba224 assets\very-berry\models\block\rime_berry_bush_age1.json
 fb76b28848dd869140616856dc38a258b73b53e6 assets\very-berry\blockstates\fireshine_berry_head.json
 c1766ed3d52b48437ec817e61409592ebb5c0532 assets\very-berry\models\block\fireshine_berry_head.json
 aa975e247ff2f48f84b1187eef15ff961166490b assets\very-berry\models\block\rime_berry_bush_age0.json

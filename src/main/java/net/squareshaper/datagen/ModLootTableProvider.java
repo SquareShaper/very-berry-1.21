@@ -61,6 +61,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
                         .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
                 )
+                .pool(LootPool.builder().conditionally(
+                                BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(BerryBushBlock.AGE, harvestAge-1)))
+                        .with(ItemEntry.builder(item))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
+                )
         );
     }
 

@@ -17,6 +17,8 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -74,6 +76,17 @@ public class BerryBushBlock extends PlantBlock implements Fertilizable {
 
     public Item getBerryDrop() {
         return Items.SWEET_BERRIES;
+    }
+
+
+    //make sure that Bonemeal actually grows it fully
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        int i = state.get(AGE);
+        boolean bl = i == 3;
+        return !bl && stack.isOf(Items.BONE_MEAL)
+                ? ItemActionResult.SKIP_DEFAULT_BLOCK_INTERACTION
+                : super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     @Override

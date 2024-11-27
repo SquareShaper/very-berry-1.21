@@ -1,6 +1,7 @@
 package net.squareshaper;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -34,6 +35,9 @@ public class VeryBerry implements ModInitializer {
 		ModItems.registerModItems();
 		ModFoodComponents.registerModFoodComponents();
 		ModBiomeModifiers.registerBiomeModifiers();
+
+		CompostingChanceRegistry.INSTANCE.add(ModItems.RIMEBERRIES, 0.3f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.FIRESHINE_BERRIES, 0.4f);
 	}
 
 	public static String addZeroIfOneDigit(int number) {
