@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.squareshaper.registry.ModBlocks;
+import net.squareshaper.registry.ModEffects;
 import net.squareshaper.registry.ModFoodComponents;
 import net.squareshaper.registry.ModItems;
 import net.squareshaper.worldgen.ModBiomeModifiers;
@@ -35,6 +36,7 @@ public class VeryBerry implements ModInitializer {
 		ModItems.registerModItems();
 		ModFoodComponents.registerModFoodComponents();
 		ModBiomeModifiers.registerBiomeModifiers();
+		ModEffects.registerModEffects();
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.RIMEBERRIES, 0.3f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.FIRESHINE_BERRIES, 0.4f);
