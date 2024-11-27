@@ -16,12 +16,12 @@ import net.squareshaper.block.NetherVines;
 import net.squareshaper.block.RimeBerryBushBlock;
 
 public class ModBlocks {
-    public static final Block RIMEBERRY_BUSH = registerBlock("rime_berry_bush",
+    public static final Block RIMEBERRY_BUSH = registerBlockNoItem("rime_berry_bush",
             new RimeBerryBushBlock(AbstractBlock.Settings.create().strength(1).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
                     .pistonBehavior(PistonBehavior.DESTROY).nonOpaque().noCollision().luminance(state -> state.get(RimeBerryBushBlock.AGE) == 3 ? 4 : 0)
                     .mapColor(MapColor.DIAMOND_BLUE)));
 
-    public static final Block FIRESHINE_BERRY_BODY = registerBlock("fireshine_berry_body",
+    public static final Block FIRESHINE_BERRY_BODY = registerBlockNoItem("fireshine_berry_body",
             new FireShineBerryBody(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_RED)
                     .noCollision()
@@ -30,7 +30,7 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block FIRESHINE_BERRY_HEAD = registerBlock("fireshine_berry_head",
+    public static final Block FIRESHINE_BERRY_HEAD = registerBlockNoItem("fireshine_berry_head",
             new FireShineBerryHead(AbstractBlock.Settings.create()
                     .mapColor(MapColor.DARK_RED)
                     .ticksRandomly()
@@ -44,6 +44,10 @@ public class ModBlocks {
     //Helper functions
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, VeryBerry.id(name), block);
+    }
+
+    private static Block registerBlockNoItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, VeryBerry.id(name), block);
     }
 
