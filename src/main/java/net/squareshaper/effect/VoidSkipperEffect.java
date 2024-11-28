@@ -26,11 +26,9 @@ public class VoidSkipperEffect extends StatusEffect {
 
         Identifier dimension = entity.getEntityWorld().getRegistryKey().getValue();
 
+
         int voidLayer;
         int desiredLayer;
-
-        //actually gives the acceleration!
-        double acceleration = entity.getFinalGravity();
 
         desiredLayer = switch (dimension.toString()) {
             case "minecraft:overworld" -> {
@@ -47,10 +45,16 @@ public class VoidSkipperEffect extends StatusEffect {
             }
         };
 
-        double boostSpeed = (desiredLayer - voidLayer + amplifier * amplifierMultiplier) * 0.07;
+        //actually gives the acceleration!
+        double acceleration = entity.getFinalGravity();
+        double drag = 0.02;
+        double distanceTravelled = desiredLayer-voidLayer;
+
+        double initialVel = 4.8;
+
 
         if (pos.getY() <= voidLayer) {
-            Vec3d newVel = new Vec3d(vel.getX(), boostSpeed, vel.getZ());
+            Vec3d newVel = new Vec3d(vel.getX(), initialVel, vel.getZ());
             entity.setVelocity(newVel);
         }
 
