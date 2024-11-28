@@ -11,6 +11,13 @@ public class VoidSkipperEffect extends StatusEffect {
         super(category, color);
     }
 
+    //colors:
+    //#1b0140
+    //#6805f2
+    //#5204bf
+    //#310273
+    //#140126
+
     @Override
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         Vec3d pos = entity.getPos();
@@ -25,19 +32,20 @@ public class VoidSkipperEffect extends StatusEffect {
         //actually gives the acceleration!
         double acceleration = entity.getFinalGravity();
 
-        switch (dimension.toString()) {
-            case "minecraft:overworld":
+        desiredLayer = switch (dimension.toString()) {
+            case "minecraft:overworld" -> {
                 voidLayer = -113;
-                desiredLayer = -66;
-                break;
-            case "minecraft:the_end":
-                voidLayer = 0;
-                desiredLayer = 50;
-                break;
-            default:
+                yield -66;
+            }
+            case "minecraft:the_end" -> {
+                voidLayer = 20;
+                yield 60;
+            }
+            default -> {
                 voidLayer = -50;
-                desiredLayer = 2;
-        }
+                yield 2;
+            }
+        };
 
         double boostSpeed = (desiredLayer - voidLayer + amplifier * amplifierMultiplier) * 0.07;
 

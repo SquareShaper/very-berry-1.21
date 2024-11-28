@@ -38,5 +38,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FIRESHINE_BERRIES, Models.GENERATED);
         itemModelGenerator.register(ModItems.FIRESHINE_BERRY_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RIMEBERRY_MUFFIN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOIDBERRIES, Models.GENERATED);
     }
 }
