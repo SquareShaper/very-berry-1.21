@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "block/void_berry_frond_stage0",
-        "void_berry_frond": "block/void_berry_frond_stage0"
+        "particle": "very-berry:block/void_berry_frond_stage0",
+        "void_berry_frond": "very-berry:block/void_berry_frond_stage0"
     },
     "elements": [
         {   "from": [ 6, 7, 11 ],
