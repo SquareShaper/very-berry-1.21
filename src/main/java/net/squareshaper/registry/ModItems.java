@@ -1,7 +1,6 @@
 package net.squareshaper.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -36,7 +35,7 @@ public class ModItems {
         }
     });
 
-    public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(Blocks.END_GATEWAY,
+    public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_FROND,
             new Item.Settings().food(ModFoodComponents.VOIDBERRIES)));
 
 

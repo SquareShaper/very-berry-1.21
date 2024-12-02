@@ -10,10 +10,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.squareshaper.VeryBerry;
-import net.squareshaper.block.FireShineBerryBody;
-import net.squareshaper.block.FireShineBerryHead;
-import net.squareshaper.block.NetherVines;
-import net.squareshaper.block.RimeBerryBushBlock;
+import net.squareshaper.block.*;
 
 public class ModBlocks {
     public static final Block RIMEBERRY_BUSH = registerBlockNoItem("rime_berry_bush",
@@ -38,6 +35,15 @@ public class ModBlocks {
                     .luminance(NetherVines.getLuminanceSupplier(13))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
+                    .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block VOID_BERRY_FROND = registerBlockNoItem("void_berry_frond",
+            new VoidBerryFrond(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PURPLE)
+                    .ticksRandomly()
+                    .noCollision()
+                    .breakInstantly()
+                    .sounds(BlockSoundGroup.LILY_PAD)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
 

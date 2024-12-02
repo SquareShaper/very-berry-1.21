@@ -20,6 +20,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FIRESHINE_BERRY_BODY)
                 .add(ModBlocks.FIRESHINE_BERRY_HEAD);
 
-        getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(ModBlocks.FIRESHINE_BERRY_BODY).add(ModBlocks.FIRESHINE_BERRY_HEAD);
+        getOrCreateTagBuilder(BlockTags.CLIMBABLE)
+                .add(ModBlocks.FIRESHINE_BERRY_BODY)
+                .add(ModBlocks.FIRESHINE_BERRY_HEAD)
+                .add(ModBlocks.VOID_BERRY_FROND);
     }
 }

@@ -30,6 +30,18 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier identifier4 = blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_BODY, "_lit", Models.CROSS, TextureMap::cross);
         blockStateModelGenerator.blockStateCollector
                 .accept(VariantsBlockStateSupplier.create(ModBlocks.FIRESHINE_BERRY_BODY).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.BERRIES, identifier4, identifier3)));
+
+        blockStateModelGenerator.blockStateCollector
+                .accept(
+                        VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_FROND)
+                                .coordinate(
+                                        BlockStateVariantMap.create(Properties.AGE_2)
+                                                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage0")))
+                                                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage1")))
+                                                .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage2")))
+                                )
+                                .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
+                );
     }
 
     @Override

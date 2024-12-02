@@ -19,6 +19,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.squareshaper.block.BerryBushBlock;
 import net.squareshaper.block.NetherVines;
 import net.squareshaper.block.RimeBerryBushBlock;
+import net.squareshaper.block.VoidBerryFrond;
 import net.squareshaper.registry.ModBlocks;
 import net.squareshaper.registry.ModItems;
 
@@ -36,6 +37,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.FIRESHINE_BERRY_BODY, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_BODY, ModItems.FIRESHINE_BERRIES, 1, 3));
         addDrop(ModBlocks.FIRESHINE_BERRY_HEAD, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_HEAD, ModItems.FIRESHINE_BERRIES, 1, 3));
+
+        addDrop(ModBlocks.VOID_BERRY_FROND, berryBushDrops(ModBlocks.VOID_BERRY_FROND, ModItems.VOIDBERRIES, VoidBerryFrond.getMinDrops(),
+                VoidBerryFrond.getMaxDrops(), VoidBerryFrond.getHarvestAge()));
     }
 
     public LootTable.Builder fireshineBerryDrops(Block block, Item item, float minDrops, float maxDrops) {
