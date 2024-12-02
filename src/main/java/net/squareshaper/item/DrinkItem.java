@@ -42,7 +42,6 @@ public class DrinkItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        user.setVelocity(user.getVelocity().getX(), 4.8, user.getVelocity().getZ());
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
