@@ -35,10 +35,11 @@ public class ModModelProvider extends FabricModelProvider {
                 .accept(
                         VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_FROND)
                                 .coordinate(
-                                        BlockStateVariantMap.create(Properties.AGE_2)
+                                        BlockStateVariantMap.create(Properties.AGE_3)
                                                 .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage0")))
                                                 .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage1")))
                                                 .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage2")))
+                                                .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage3")))
                                 )
                                 .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
                 );

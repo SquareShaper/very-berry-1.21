@@ -44,6 +44,21 @@
     "age=2,facing=west": {
       "model": "very-berry:block/void_berry_frond_stage2",
       "y": 90
+    },
+    "age=3,facing=east": {
+      "model": "very-berry:block/void_berry_frond_stage3",
+      "y": 270
+    },
+    "age=3,facing=north": {
+      "model": "very-berry:block/void_berry_frond_stage3",
+      "y": 180
+    },
+    "age=3,facing=south": {
+      "model": "very-berry:block/void_berry_frond_stage3"
+    },
+    "age=3,facing=west": {
+      "model": "very-berry:block/void_berry_frond_stage3",
+      "y": 90
     }
   }
 }

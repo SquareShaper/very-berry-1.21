@@ -13,7 +13,7 @@
           "block": "very-berry:void_berry_frond",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "2"
+            "age": "3"
           }
         }
       ],
@@ -51,7 +51,7 @@
           "block": "very-berry:void_berry_frond",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "1"
+            "age": "2"
           }
         }
       ],

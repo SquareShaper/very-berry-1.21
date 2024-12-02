@@ -50,20 +50,21 @@ public class VoidSkipperEffect extends StatusEffect {
 
         //actually gives the acceleration!
         double acceleration = entity.getFinalGravity();
+        //make a table with types of entities, so it works for other stuff than players
         double drag = 0.02;
         double distanceTravelled = desiredLayer - voidLayer;
 
         double initialVel = velFromHeightTicks(distanceTravelled, 40, drag, acceleration);
 
 
-        if (pos.getY() <= voidLayer) {
-
-            ModEntityComponents.VOID_SKIPPING.get(entity).setSkipped(true);
-            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(ModEntityComponents.VOID_SKIPPING.get(entity).getCounter() + 1);
+        if (pos.getY() <= voidLayer && ModEntityComponents.VOID_SKIPPING.get(entity).canSkip()) {
+            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(0);
 
             double directionalSpeed = 2d;
 
             Vec3d directionalVec = entity.getMovement().multiply(directionalSpeed);
+
+            directionalVec = new Vec3d(directionalVec.getX(), 0, directionalVec.getZ());
 
             Vec3d newVel = new Vec3d(vel.getX(), initialVel, vel.getZ());
 
@@ -83,13 +84,18 @@ public class VoidSkipperEffect extends StatusEffect {
             }
         }
         else if (pos.getY() > voidLayer) {
-            ModEntityComponents.VOID_SKIPPING.get(entity).setSkipped(false);
+            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(ModEntityComponents.VOID_SKIPPING.get(entity).getThreshold());
         }
+        else {
+            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(ModEntityComponents.VOID_SKIPPING.get(entity).getCounter() + 1);
+        }
+
         return super.applyUpdateEffect(entity, amplifier);
     }
 
     private double velFromHeightTicks(double height, int ticks, double drag, double acc) {
-        return  (acc*Math.log(1-drag)*ticks+Math.log(1-drag)*drag*height+(acc* Math.pow((1-drag), ticks)-acc)*drag-acc*Math.pow((1-drag), ticks)+acc)/((Math.pow((1-drag),ticks)-1)*drag);
+        double thingy = acc * Math.pow((1 - drag), ticks);
+        return  (acc*Math.log(1-drag)*ticks+Math.log(1-drag)*drag*height+(thingy -acc)*drag- thingy +acc)/((Math.pow((1-drag),ticks)-1)*drag);
     }
 
     @Override

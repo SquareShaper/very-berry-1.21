@@ -37,6 +37,7 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
+    //use glow-lichen generation logic as inspiration for this one
     public static final Block VOID_BERRY_FROND = registerBlockNoItem("void_berry_frond",
             new VoidBerryFrond(AbstractBlock.Settings.create()
                     .mapColor(MapColor.PURPLE)
