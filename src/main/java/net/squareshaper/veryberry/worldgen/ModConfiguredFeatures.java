@@ -80,24 +80,24 @@ public class ModConfiguredFeatures {
                 true
         ));
 
-        Block multifaceGrowthBlock = ModBlocks.VOID_BERRY_MOSS;
-        ConfiguredFeatures.register(
-                context,
-                VOIDBERRY_KEY,
-                Feature.MULTIFACE_GROWTH,
-                new MultifaceGrowthFeatureConfig(
-                        (MultifaceGrowthBlock) multifaceGrowthBlock,
-                        20,
-                        false,
-                        true,
-                        true,
-                        0.5F,
-                        RegistryEntryList.of(
-                                Block::getRegistryEntry,
-                                Blocks.END_STONE
-                        )
-                )
-        );
+//        Block multifaceGrowthBlock = ModBlocks.VOID_BERRY_MOSS;
+//        ConfiguredFeatures.register(
+//                context,
+//                VOIDBERRY_KEY,
+//                Feature.MULTIFACE_GROWTH,
+//                new MultifaceGrowthFeatureConfig(
+//                        (MultifaceGrowthBlock) multifaceGrowthBlock,
+//                        20,
+//                        false,
+//                        true,
+//                        true,
+//                        0.5F,
+//                        RegistryEntryList.of(
+//                                Block::getRegistryEntry,
+//                                Blocks.END_STONE
+//                        )
+//                )
+//        );
 
     }
 

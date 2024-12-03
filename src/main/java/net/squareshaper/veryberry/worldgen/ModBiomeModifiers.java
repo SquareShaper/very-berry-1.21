@@ -9,11 +9,11 @@ import net.squareshaper.veryberry.VeryBerry;
 public class ModBiomeModifiers {
     public static void registerBiomeModifiers() {
         VeryBerry.LOGGER.info("Registering Biome Modifiers for " + VeryBerry.MOD_ID + "...");
-//        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_PEAKS, BiomeKeys.JAGGED_PEAKS, BiomeKeys.GROVE,
-//                BiomeKeys.SNOWY_SLOPES, BiomeKeys.ICE_SPIKES), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.RIMEBERRY_PATCH_KEY);
-//
-//        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.NETHER_WASTES), GenerationStep.Feature.VEGETAL_DECORATION,
-//                ModPlacedFeatures.FIRESHINE_BERRY_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_PEAKS, BiomeKeys.JAGGED_PEAKS, BiomeKeys.GROVE,
+                BiomeKeys.SNOWY_SLOPES, BiomeKeys.ICE_SPIKES), GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.RIMEBERRY_PATCH_KEY);
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.NETHER_WASTES), GenerationStep.Feature.VEGETAL_DECORATION,
+                ModPlacedFeatures.FIRESHINE_BERRY_KEY);
 
 //        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.SMALL_END_ISLANDS), GenerationStep.Feature.VEGETAL_DECORATION,
 //                ModPlacedFeatures.VOIDBERRY_KEY);
