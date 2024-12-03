@@ -47,6 +47,7 @@ public class ModItems {
     public static void registerModItems() {
         VeryBerry.LOGGER.info("Registering Items for " + VeryBerry.MOD_ID + "...");
         ItemGroupEvents.modifyEntriesEvent((ItemGroups.FOOD_AND_DRINK)).register(entries -> {
+            entries.addAfter(Items.GLOW_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.RIMEBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.FIRESHINE_BERRIES);
             entries.addAfter(Items.PUMPKIN_PIE, ModItems.RIMEBERRY_MUFFIN);
@@ -54,6 +55,7 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent((ItemGroups.NATURAL)).register(entries -> {
+            entries.addAfter(Items.SWEET_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.RIMEBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.FIRESHINE_BERRIES);
         });
