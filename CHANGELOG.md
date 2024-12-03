@@ -1,4 +1,11 @@
 
+# 1.0.3
+Added the Voidberries, along with a new block, the Voidberry Moss!  
+They're currently a work in progress, but you can access them from the creative mode inventory  
+Consuming a Voidberry gives you a new status effect, Voidskipping! It allows you to traverse the void  
+between the end islands easier, by propelling you upwards, "skipping" along the void. Sneaking while having the
+buff shoots you further up, allowing to get back on the end islands. 
+
 # 1.0.2
 Changed the texture for the Fireshine Berry Growths  
 Reduced the frequency at which the Fireshine Berry Growths are generated  
