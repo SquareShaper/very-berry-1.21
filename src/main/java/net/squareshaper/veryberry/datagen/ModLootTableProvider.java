@@ -19,7 +19,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.squareshaper.veryberry.block.BerryBushBlock;
 import net.squareshaper.veryberry.block.NetherVines;
 import net.squareshaper.veryberry.block.RimeBerryBushBlock;
-import net.squareshaper.veryberry.block.VoidBerryFrond;
+import net.squareshaper.veryberry.block.VoidBerryMoss;
 import net.squareshaper.veryberry.registry.ModBlocks;
 import net.squareshaper.veryberry.registry.ModItems;
 
@@ -38,8 +38,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FIRESHINE_BERRY_BODY, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_BODY, ModItems.FIRESHINE_BERRIES, 1, 3));
         addDrop(ModBlocks.FIRESHINE_BERRY_HEAD, fireshineBerryDrops(ModBlocks.FIRESHINE_BERRY_HEAD, ModItems.FIRESHINE_BERRIES, 1, 3));
 
-        addDrop(ModBlocks.VOID_BERRY_FROND, berryBushDrops(ModBlocks.VOID_BERRY_FROND, ModItems.VOIDBERRIES, VoidBerryFrond.getMinDrops(),
-                VoidBerryFrond.getMaxDrops(), VoidBerryFrond.getHarvestAge()));
+        addDrop(ModBlocks.VOID_BERRY_MOSS, berryBushDropsAge(ModBlocks.VOID_BERRY_MOSS, ModItems.VOIDBERRIES, VoidBerryMoss.getMinDrops(),
+                VoidBerryMoss.getMaxDrops(), VoidBerryMoss.getHarvestAge()));
     }
 
     public LootTable.Builder fireshineBerryDrops(Block block, Item item, float minDrops, float maxDrops) {
@@ -67,6 +67,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 )
                 .pool(LootPool.builder().conditionally(
                                 BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(BerryBushBlock.AGE, harvestAge-1)))
+                        .with(ItemEntry.builder(item))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
+                )
+        );
+    }
+
+    public LootTable.Builder berryBushDropsAge(Block block, Item item, float minDrops, float maxDrops, int harvestAge) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
+        return this.applyExplosionDecay(block, LootTable.builder()
+                .pool(LootPool.builder().conditionally(
+                                BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(BerryBushBlock.AGE, harvestAge)))
                         .with(ItemEntry.builder(item))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops)))
                         .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))

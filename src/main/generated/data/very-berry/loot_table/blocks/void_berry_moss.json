@@ -10,48 +10,10 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "very-berry:void_berry_frond",
+          "block": "very-berry:void_berry_moss",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "3"
-          }
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "very-berry:voidberries"
-        }
-      ],
-      "functions": [
-        {
-          "add": false,
-          "count": {
-            "type": "minecraft:uniform",
-            "max": 64.0,
-            "min": 1.0
-          },
-          "function": "minecraft:set_count"
-        },
-        {
-          "enchantment": "minecraft:fortune",
-          "formula": "minecraft:uniform_bonus_count",
-          "function": "minecraft:apply_bonus",
-          "parameters": {
-            "bonusMultiplier": 1
-          }
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "block": "very-berry:void_berry_frond",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "age": "2"
           }
         }
       ],

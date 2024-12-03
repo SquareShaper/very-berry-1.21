@@ -3,11 +3,10 @@ package net.squareshaper.veryberry.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.squareshaper.veryberry.cca.ModEntityComponents;
-import net.squareshaper.veryberry.registry.ModEffects;
 
 public class VoidSkipperEffect extends StatusEffect {
     public VoidSkipperEffect(StatusEffectCategory category, int color) {
@@ -25,10 +24,8 @@ public class VoidSkipperEffect extends StatusEffect {
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         Vec3d pos = entity.getPos();
         Vec3d vel = entity.getVelocity();
-        double amplifierMultiplier = 1.5;
 
         Identifier dimension = entity.getEntityWorld().getRegistryKey().getValue();
-
 
         int voidLayer;
         int desiredLayer;
@@ -40,29 +37,36 @@ public class VoidSkipperEffect extends StatusEffect {
             }
             case "minecraft:the_end" -> {
                 voidLayer = 20;
-                yield 60;
+                yield 64;
             }
             default -> {
                 voidLayer = -50;
-                yield 2;
+                yield 10;
             }
         };
 
         //actually gives the acceleration!
         double acceleration = entity.getFinalGravity();
+
         //make a table with types of entities, so it works for other stuff than players
         double drag = 0.02;
+
         double distanceTravelled = desiredLayer - voidLayer;
 
         double initialVel = velFromHeightTicks(distanceTravelled, 40, drag, acceleration);
 
+        if (entity instanceof PlayerEntity player && !player.isSneaking()) {
+            initialVel /= 4;
+        }
+
 
         if (pos.getY() <= voidLayer && ModEntityComponents.VOID_SKIPPING.get(entity).canSkip()) {
+
             ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(0);
 
             double directionalSpeed = 2d;
 
-            Vec3d directionalVec = entity.getMovement().multiply(directionalSpeed);
+            Vec3d directionalVec = entity.getMovement().normalize().multiply(directionalSpeed);
 
             directionalVec = new Vec3d(directionalVec.getX(), 0, directionalVec.getZ());
 
@@ -71,23 +75,9 @@ public class VoidSkipperEffect extends StatusEffect {
             newVel = newVel.add(directionalVec);
 
             entity.setVelocity(newVel);
-
-            StatusEffectInstance effect = entity.getStatusEffect(ModEffects.VOID_SKIPPER);
-
-            if (amplifier > 0) {
-                StatusEffectInstance newEffect = new StatusEffectInstance(ModEffects.VOID_SKIPPER, effect.getDuration(), amplifier - 1, effect.isAmbient(), effect.shouldShowParticles());
-                entity.removeStatusEffect(ModEffects.VOID_SKIPPER);
-                entity.addStatusEffect(newEffect);
-            } else {
-                entity.removeStatusEffect(ModEffects.VOID_SKIPPER);
-                return false;
-            }
-        }
-        else if (pos.getY() > voidLayer) {
-            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(ModEntityComponents.VOID_SKIPPING.get(entity).getThreshold());
         }
         else {
-            ModEntityComponents.VOID_SKIPPING.get(entity).setCounter(ModEntityComponents.VOID_SKIPPING.get(entity).getCounter() + 1);
+            ModEntityComponents.VOID_SKIPPING.get(entity).incrementCounter();
         }
 
         return super.applyUpdateEffect(entity, amplifier);

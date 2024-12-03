@@ -33,13 +33,13 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.blockStateCollector
                 .accept(
-                        VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_FROND)
+                        VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_MOSS)
                                 .coordinate(
                                         BlockStateVariantMap.create(Properties.AGE_3)
-                                                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage0")))
-                                                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage1")))
-                                                .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage2")))
-                                                .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_FROND, "_stage3")))
+                                                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage0")))
+                                                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage1")))
+                                                .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage2")))
+                                                .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage3")))
                                 )
                                 .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
                 );

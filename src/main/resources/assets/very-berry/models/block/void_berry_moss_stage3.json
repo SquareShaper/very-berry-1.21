@@ -1,0 +1,51 @@
+{
+    "credit": "Made with Blockbench",
+    "ambientocclusion": false,
+    "textures": {
+        "1": "very-berry:block/void_berry_moss_stage3",
+        "5": "very-berry:block/void_berry_moss_growth",
+        "particle": "very-berry:block/void_berry_moss_stage3"
+    },
+    "elements": [
+        {
+            "name": "growth",
+            "from": [0, 0, 15],
+            "to": [16, 16, 15],
+            "rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 14]},
+            "faces": {
+                "north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+                "south": {"uv": [0, 0, 16, 16], "texture": "#1"}
+            }
+        },
+        {
+            "name": "berryarm",
+            "from": [8, 5, 7],
+            "to": [8, 10, 15],
+            "rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 14]},
+            "faces": {
+                "east": {"uv": [0, 0, 16, 10], "texture": "#5"},
+                "west": {"uv": [16, 0, 0, 10], "texture": "#5"}
+            }
+        },
+        {
+            "name": "berry",
+            "from": [8, 2, 8],
+            "to": [8, 5, 11],
+            "rotation": {"angle": 45, "axis": "y", "origin": [8, 3.5, 9.5]},
+            "faces": {
+                "east": {"uv": [8, 10, 14, 16], "texture": "#5"},
+                "west": {"uv": [14, 10, 8, 16], "texture": "#5"}
+            }
+        },
+        {
+            "name": "berry",
+            "from": [6.5, 2, 9.5],
+            "to": [9.5, 5, 9.5],
+            "rotation": {"angle": 45, "axis": "y", "origin": [8, 3.5, 9.5]},
+            "faces": {
+                "north": {"uv": [8, 10, 14, 16], "texture": "#5"},
+                "south": {"uv": [14, 10, 8, 16], "texture": "#5"}
+            }
+        }
+    ]
+}

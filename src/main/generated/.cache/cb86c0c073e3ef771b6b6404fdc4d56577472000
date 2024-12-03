@@ -1,4 +1,4 @@
-// 1.21	2024-12-02T14:07:04.9436026	Very Berry/Model Definitions
+// 1.21	2024-12-03T15:26:06.3519113	Very Berry/Model Definitions
 fa22be716dff7897df48c59063aca82cd5a0190e assets\very-berry\models\block\fireshine_berry_body_lit.json
 bbdee95313bbf46efbeee696c596e33550e7ef3a assets\very-berry\models\item\voidberries.json
 e7f884fec301f97d76174a8bcc869d0bea1ba224 assets\very-berry\models\block\rime_berry_bush_age1.json
@@ -10,7 +10,7 @@ f5f7b953311a50e6dff389b8dfd0904e10a40a16 assets\very-berry\models\item\rimeberry
 2b600ebe3419f01183cee2fc5657e72a842938e4 assets\very-berry\models\block\rime_berry_bush_age3.json
 f0419c03f48514cf3e92cda0cc1a8180a7921e5b assets\very-berry\models\block\rime_berry_bush_age2.json
 f826a25a27de7a335c7d2663b1baf5a210e22236 assets\very-berry\models\item\fireshine_berry_juice.json
-0e442d2ac617f6947face75aa5264ec23c9ddc32 assets\very-berry\blockstates\void_berry_frond.json
+6c9cac570ef6c514af9d65cf128da838b1e61f42 assets\very-berry\blockstates\void_berry_moss.json
 7a38fcbe02b49149fe7b3d759b0b253bea8813d3 assets\very-berry\blockstates\rime_berry_bush.json
 358cdba7487f73ad4beaf85cb7b080f7eb81196d assets\very-berry\models\block\fireshine_berry_head_lit.json
 f5c5fe3ddc703748693cf07cc29e6d62bb9bd73a assets\very-berry\blockstates\fireshine_berry_body.json

@@ -19,7 +19,7 @@ public class ModFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 2400, 0), 1f).alwaysEdible().build();
 
     public static final FoodComponent VOIDBERRIES = new FoodComponent.Builder().nutrition(2).saturationModifier(0.25f)
-            .statusEffect(new StatusEffectInstance(ModEffects.VOID_SKIPPER, 1200, 2), 1f).alwaysEdible().build();
+            .statusEffect(new StatusEffectInstance(ModEffects.VOID_SKIPPER, 1200, 0), 1f).alwaysEdible().build();
 
     public static void registerModFoodComponents() {
         VeryBerry.LOGGER.info("Registering Food Components for " + VeryBerry.MOD_ID + "...");

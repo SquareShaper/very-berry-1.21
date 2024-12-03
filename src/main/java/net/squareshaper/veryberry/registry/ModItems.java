@@ -35,7 +35,7 @@ public class ModItems {
         }
     });
 
-    public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_FROND,
+    public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_MOSS,
             new Item.Settings().food(ModFoodComponents.VOIDBERRIES)));
 
 

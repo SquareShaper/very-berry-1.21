@@ -1,0 +1,20 @@
+{
+    "credit": "Made with Blockbench",
+    "ambientocclusion": false,
+    "textures": {
+        "1": "very-berry:block/void_berry_moss_stage0",
+        "particle": "very-berry:block/void_berry_moss_stage0"
+    },
+    "elements": [
+        {
+            "name": "growth",
+            "from": [0, 0, 15],
+            "to": [16, 16, 15],
+            "rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 14]},
+            "faces": {
+                "north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+                "south": {"uv": [0, 0, 16, 16], "texture": "#1"}
+            }
+        }
+    ]
+}

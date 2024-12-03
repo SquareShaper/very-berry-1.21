@@ -27,6 +27,11 @@ public class VoidSkipComponent implements AutoSyncedComponent {
     public void setCounter(int counter) {
         this.counter = counter;
     }
+
+    public void incrementCounter() {
+        this.counter++;
+    }
+
     @Override
     public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
         this.counter = nbtCompound.getInt("Counter");

@@ -24,6 +24,7 @@ public class ModBlocks {
                     .noCollision()
                     .luminance(NetherVines.getLuminanceSupplier(13))
                     .breakInstantly()
+                    .nonOpaque()
                     .sounds(BlockSoundGroup.CAVE_VINES)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
@@ -35,15 +36,17 @@ public class ModBlocks {
                     .luminance(NetherVines.getLuminanceSupplier(13))
                     .breakInstantly()
                     .sounds(BlockSoundGroup.CAVE_VINES)
+                    .nonOpaque()
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
     //use glow-lichen generation logic as inspiration for this one
-    public static final Block VOID_BERRY_FROND = registerBlockNoItem("void_berry_frond",
-            new VoidBerryFrond(AbstractBlock.Settings.create()
+    public static final Block VOID_BERRY_MOSS = registerBlockNoItem("void_berry_moss",
+            new VoidBerryMoss(AbstractBlock.Settings.create()
                     .mapColor(MapColor.PURPLE)
                     .ticksRandomly()
                     .noCollision()
                     .breakInstantly()
+                    .nonOpaque()
                     .sounds(BlockSoundGroup.LILY_PAD)
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
