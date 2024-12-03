@@ -1,10 +1,14 @@
 package net.squareshaper.veryberry.worldgen;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.MultifaceGrowthBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -27,6 +31,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> RIMEBERRY_KEY = registerKey("rimeberry");
     public static final RegistryKey<ConfiguredFeature<?, ?>> RIMEBERRY_PATCH_KEY = registerKey("rimeberry_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FIRESHINE_BERRY_KEY = registerKey("fireshine_berry");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> VOIDBERRY_KEY = registerKey("voidberry");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -74,6 +79,26 @@ public class ModConfiguredFeatures {
                 BlockPredicate.IS_AIR,
                 true
         ));
+
+        Block multifaceGrowthBlock = ModBlocks.VOID_BERRY_MOSS;
+        ConfiguredFeatures.register(
+                context,
+                VOIDBERRY_KEY,
+                Feature.MULTIFACE_GROWTH,
+                new MultifaceGrowthFeatureConfig(
+                        (MultifaceGrowthBlock) multifaceGrowthBlock,
+                        20,
+                        false,
+                        true,
+                        true,
+                        0.5F,
+                        RegistryEntryList.of(
+                                Block::getRegistryEntry,
+                                Blocks.END_STONE
+                        )
+                )
+        );
+
     }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

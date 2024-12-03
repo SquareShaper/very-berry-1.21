@@ -7,6 +7,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -21,6 +22,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RIMEBERRY_KEY = registerKey("rimeberry");
     public static final RegistryKey<PlacedFeature> RIMEBERRY_PATCH_KEY = registerKey("rimeberry_patch");
     public static final RegistryKey<PlacedFeature> FIRESHINE_BERRY_KEY = registerKey("fireshine_berry");
+    public static final RegistryKey<PlacedFeature> VOIDBERRY_KEY = registerKey("voidberry");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -38,6 +40,12 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.belowTop(40), YOffset.TOP),
                         EnvironmentScanPlacementModifier.of(Direction.UP, BlockPredicate.hasSturdyFace(Direction.DOWN), BlockPredicate.IS_AIR, 20),
                         RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)),
+                        BiomePlacementModifier.of()));
+
+        register(context, VOIDBERRY_KEY, registryLookup.getOrThrow(ModConfiguredFeatures.VOIDBERRY_KEY),
+                List.of(CountPlacementModifier.of(UniformIntProvider.create(100, 200)),
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(40), YOffset.aboveBottom(70)),
+                        SquarePlacementModifier.of(),
                         BiomePlacementModifier.of()));
     }
 

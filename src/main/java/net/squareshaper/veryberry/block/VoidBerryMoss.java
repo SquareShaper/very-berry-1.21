@@ -84,7 +84,7 @@ public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable
     }
 
     public static float getMaxDrops() {
-        return 64;
+        return 4;
     }
 
     public static int getHarvestAge() {
