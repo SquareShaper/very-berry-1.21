@@ -11,6 +11,17 @@ Void paste is for drugs! Basalt paste is for drugs! erm, I mean, elixirs
 Soul berries, what do they do... (they give you a new status effect, that lets you phase through 1 layer of blocks)  
 Soul paste is for making soul pet feed, bind the souls of your pet to you!  
 
+Chrono berries, they save the position at which you ate them, and then give you an effect\
+the effect takes you back to the saved spot when it expires\
+Curios trinket integration, with berry based trinkets that activate when needed\
+you charge them with berry paste? or something else, based on a specific berry\
+depending on which berry paste is used, they give the berry effect on a specific trigger:\
+first one would be fireshine, that consumes a charge and gives you fire res when you catch fire
+
+Teleporter-like thing, based on the chrono berries, you have a "wand" to click a position\
+and then you make a marker somewhere else(block), the marker takes you to the destination saved, and back again when needed
+
+
 # Changes
 Fireshine berries as a trade in bartering?
 
