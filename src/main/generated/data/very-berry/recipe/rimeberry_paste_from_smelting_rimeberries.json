@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 25,
+  "experience": 0.04375,
+  "group": "berry_paste",
+  "ingredient": {
+    "item": "very-berry:rimeberries"
+  },
+  "result": {
+    "id": "very-berry:rimeberry_paste"
+  }
+}

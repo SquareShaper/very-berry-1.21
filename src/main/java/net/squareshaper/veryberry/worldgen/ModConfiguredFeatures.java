@@ -1,14 +1,10 @@
 package net.squareshaper.veryberry.worldgen;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.MultifaceGrowthBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -31,7 +27,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> RIMEBERRY_KEY = registerKey("rimeberry");
     public static final RegistryKey<ConfiguredFeature<?, ?>> RIMEBERRY_PATCH_KEY = registerKey("rimeberry_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> FIRESHINE_BERRY_KEY = registerKey("fireshine_berry");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> VOIDBERRY_KEY = registerKey("voidberry");
+//    public static final RegistryKey<ConfiguredFeature<?, ?>> VOIDBERRY_KEY = registerKey("voidberry");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
