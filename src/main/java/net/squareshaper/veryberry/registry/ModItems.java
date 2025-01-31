@@ -1,6 +1,7 @@
 package net.squareshaper.veryberry.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -37,6 +38,9 @@ public class ModItems {
 
     public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_MOSS,
             new Item.Settings().food(ModFoodComponents.VOIDBERRIES)));
+
+    public static final Item CHRONOBERRIES = registerItem("chronoberries", new AliasedEffectFoodItem(Blocks.STRIPPED_BAMBOO_BLOCK,
+            new Item.Settings().food(ModFoodComponents.CHRONOBERRIES)));
 
 
 

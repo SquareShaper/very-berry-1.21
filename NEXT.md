@@ -19,8 +19,8 @@ depending on which berry paste is used, they give the berry effect on a specific
 first one would be fireshine, that consumes a charge and gives you fire res when you catch fire
 
 Teleporter-like thing, based on the chrono berries, you have a "wand" to click a position\
-and then you make a marker somewhere else(block), the marker takes you to the destination saved, and back again when needed
-
+and then you make a marker somewhere else(block), the marker takes you to the destination saved, and back again when needed\
+Return totem, crafted with chronoberry paste and a regular totem, does the totem effects but also teleports you back to the saved location
 
 # Changes
 Fireshine berries as a trade in bartering?

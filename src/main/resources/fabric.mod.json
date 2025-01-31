@@ -41,7 +41,8 @@
 	},
 	"custom": {
 		"cardinal-components": [
-			"very-berry:voidskipper"
+			"very-berry:voidskipper",
+			"very-berry:chronoberry"
 		]
 	}
 }

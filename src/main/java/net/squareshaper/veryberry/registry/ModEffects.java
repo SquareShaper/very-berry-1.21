@@ -8,12 +8,17 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.squareshaper.veryberry.VeryBerry;
+import net.squareshaper.veryberry.effect.ReturnEffect;
 import net.squareshaper.veryberry.effect.VoidSkipperEffect;
 
 public class ModEffects {
 
     public static final RegistryEntry<StatusEffect> VOID_SKIPPER = registerEffect("void_skipper", new VoidSkipperEffect(StatusEffectCategory.BENEFICIAL,
             0x6805f2).addAttributeModifier(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE, VeryBerry.id("void_skipper"), 15,
+            EntityAttributeModifier.Operation.ADD_VALUE));
+
+    public static final RegistryEntry<StatusEffect> RETURN = registerEffect("return", new ReturnEffect(StatusEffectCategory.NEUTRAL,
+            0x6805f2).addAttributeModifier(EntityAttributes.GENERIC_ARMOR, VeryBerry.id("return"), 15,
             EntityAttributeModifier.Operation.ADD_VALUE));
 
     private static RegistryEntry<StatusEffect> registerEffect(String name, StatusEffect statusEffect) {
