@@ -58,7 +58,7 @@ public class ModItems {
 
     public static void registerModItems() {
         VeryBerry.LOGGER.info("Registering Items for " + VeryBerry.MOD_ID + "...");
-        ItemGroupEvents.modifyEntriesEvent((ItemGroups.FOOD_AND_DRINK)).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
             entries.addAfter(Items.GLOW_BERRIES, ModItems.CHRONOBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.RIMEBERRIES);
@@ -67,10 +67,17 @@ public class ModItems {
             entries.addAfter(Items.PUMPKIN_PIE, ModItems.FIRESHINE_BERRY_JUICE);
         });
 
-        ItemGroupEvents.modifyEntriesEvent((ItemGroups.NATURAL)).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.addAfter(Items.SWEET_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.RIMEBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.FIRESHINE_BERRIES);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.CHRONOBERRY_PASTE);
+            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.VOIDBERRY_PASTE);
+            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.RIMEBERRY_PASTE);
+            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.FIRESHINE_BERRY_PASTE);
         });
     }
 }
