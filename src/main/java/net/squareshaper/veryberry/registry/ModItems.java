@@ -28,7 +28,7 @@ public class ModItems {
             new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRIES)));
 
     public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", new DrinkItem(
-            new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRY_JUICE).maxCount(32), Items.GLASS_BOTTLE) {
+            new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRY_JUICE), Items.GLASS_BOTTLE) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             super.appendTooltip(stack, context, tooltip, type);
@@ -59,6 +59,7 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent((ItemGroups.NATURAL)).register(entries -> {
+            entries.addAfter(Items.SWEET_BERRIES, ModItems.CHRONOBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.RIMEBERRIES);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.FIRESHINE_BERRIES);
