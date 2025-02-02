@@ -31,6 +31,8 @@ public class ModItems {
     public static final Item CHRONOBERRIES = registerItem("chronoberries", new AliasedEffectFoodItem(Blocks.STRIPPED_BAMBOO_BLOCK,
             new Item.Settings().food(ModFoodComponents.CHRONOBERRIES)));
 
+    public static final Item THORNBERRIES = registerItem("thornberries", new EffectFoodItem(new Item.Settings().food(ModFoodComponents.THORNBERRIES)));
+
     //Berry Foods
     public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", new DrinkItem(
             new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRY_JUICE), Items.GLASS_BOTTLE) {
@@ -49,6 +51,7 @@ public class ModItems {
     public static final Item RIMEBERRY_PASTE = registerItem("rimeberry_paste", new Item(new Item.Settings()));
     public static final Item VOIDBERRY_PASTE = registerItem("voidberry_paste", new Item(new Item.Settings()));
     public static final Item CHRONOBERRY_PASTE = registerItem("chronoberry_paste", new Item(new Item.Settings()));
+    public static final Item THORNBERRY_PASTE = registerItem("thornberry_paste", new Item(new Item.Settings()));
 
 
 
@@ -59,6 +62,7 @@ public class ModItems {
     public static void registerModItems() {
         VeryBerry.LOGGER.info("Registering Items for " + VeryBerry.MOD_ID + "...");
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.addAfter(Items.GLOW_BERRIES, ModItems.THORNBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.CHRONOBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.VOIDBERRIES);
             entries.addAfter(Items.GLOW_BERRIES, ModItems.RIMEBERRIES);
@@ -74,6 +78,7 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.THORNBERRY_PASTE);
             entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.CHRONOBERRY_PASTE);
             entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.VOIDBERRY_PASTE);
             entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.RIMEBERRY_PASTE);
