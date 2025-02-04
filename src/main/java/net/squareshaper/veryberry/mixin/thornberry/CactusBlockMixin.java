@@ -13,27 +13,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CactusBlock.class)
-public class CactusBlockMixin {
+public class CactusBlockMixin extends Block {
+
+    public CactusBlockMixin(Settings settings) {
+        super(settings);
+    }
+
     @Inject(at = @At("TAIL"), method = "randomTick")
-    private void growBerry(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
-        BlockPos blockPos = pos.up();
-        if (world.isAir(blockPos)) {
-            int i = 1;
-
-            while (world.getBlockState(pos.down(i)).isOf(Blocks.CACTUS)) {
-                i++;
-            }
-
-            if (i == 3) {
-                int j = state.get(CactusBlock.AGE);
-                if (j == 15) {
-                    Block blockToSet = Blocks.TNT;
-                    world.setBlockState(blockPos, blockToSet.getDefaultState());
-//                    BlockState blockState = state.with(CactusBlock.AGE, Integer.valueOf(0)); // no need to set cactus age?
-                    world.setBlockState(pos, state, Block.NO_REDRAW);
-//                    world.updateNeighbor(blockState, blockPos, state.getBlock(), pos, false); //maybe not update neighbours?
-                }
-            }
+    private void veryberry$growBerry(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
+        //check if it's the bottom-most cactus block
+        if (world.getBlockState(pos.down()).getBlock() != Blocks.CACTUS && !world.isAir(pos.up())) {
+            //set yourself to tnt (for testing purposes)
+            Block blockToSet = Blocks.TNT;
+            world.setBlockState(pos, blockToSet.getDefaultState());
         }
     }
 }

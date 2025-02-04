@@ -3,7 +3,8 @@
   "package": "net.squareshaper.veryberry.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "thornberry.CactusBlockMixin"
+    "thornberry.CactusBlockMixin",
+    "thornberry.ServerWorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
