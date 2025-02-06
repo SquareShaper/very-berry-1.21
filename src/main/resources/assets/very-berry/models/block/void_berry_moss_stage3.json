@@ -2,9 +2,9 @@
     "credit": "Made with Blockbench",
     "ambientocclusion": false,
     "textures": {
-        "1": "very-berry:block/void_berry_moss_stage3",
-        "5": "very-berry:block/void_berry_moss_growth",
-        "particle": "very-berry:block/void_berry_moss_stage3"
+        "1": "very-berry:block/voidberry_moss_stage3",
+        "5": "very-berry:block/voidberry_moss_growth",
+        "particle": "very-berry:block/voidberry_moss_stage3"
     },
     "elements": [
         {
