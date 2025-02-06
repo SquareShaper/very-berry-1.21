@@ -68,4 +68,18 @@ public class FireShineBerryBody extends AbstractPlantBlock implements Fertilizab
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         world.setBlockState(pos, state.with(BERRIES, true), Block.NOTIFY_LISTENERS);
     }
+
+    @Override
+    protected boolean hasRandomTicks(BlockState state) {
+        return !state.get(BERRIES);
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        //make sure these can actually grow berries again
+        if (random.nextInt(50) == 0) {
+            this.grow(world, random, pos, state);
+        }
+        super.randomTick(state, world, pos, random);
+    }
 }
