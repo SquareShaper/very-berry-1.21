@@ -16,10 +16,7 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.squareshaper.veryberry.block.BerryBushBlock;
-import net.squareshaper.veryberry.block.NetherVines;
-import net.squareshaper.veryberry.block.RimeBerryBushBlock;
-import net.squareshaper.veryberry.block.VoidBerryMoss;
+import net.squareshaper.veryberry.block.*;
 import net.squareshaper.veryberry.registry.ModBlocks;
 import net.squareshaper.veryberry.registry.ModItems;
 
@@ -40,6 +37,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.VOID_BERRY_MOSS, berryBushDropsAge(ModBlocks.VOID_BERRY_MOSS, ModItems.VOIDBERRIES, VoidBerryMoss.getMinDrops(),
                 VoidBerryMoss.getMaxDrops(), VoidBerryMoss.getHarvestAge()));
+
+        addDrop(ModBlocks.THORNBERRY_BRANCH, berryBushDropsAge(ModBlocks.THORNBERRY_BRANCH, ModItems.THORNBERRIES, ThornBerryBranch.getMinDrops(),
+                ThornBerryBranch.getMaxDrops(), ThornBerryBranch.getHarvestAge()));
     }
 
     public LootTable.Builder fireshineBerryDrops(Block block, Item item, float minDrops, float maxDrops) {
