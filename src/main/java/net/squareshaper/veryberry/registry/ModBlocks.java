@@ -13,7 +13,7 @@ import net.squareshaper.veryberry.VeryBerry;
 import net.squareshaper.veryberry.block.*;
 
 public class ModBlocks {
-    public static final Block RIMEBERRY_BUSH = registerBlockNoItem("rime_berry_bush",
+    public static final Block RIMEBERRY_BUSH = registerBlockNoItem("rimeberry_bush",
             new RimeBerryBushBlock(AbstractBlock.Settings.create().strength(1).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
                     .pistonBehavior(PistonBehavior.DESTROY).nonOpaque().noCollision().luminance(state -> state.get(RimeBerryBushBlock.AGE) == 3 ? 4 : 0)
                     .mapColor(MapColor.DIAMOND_BLUE)));
@@ -40,15 +40,19 @@ public class ModBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
     //use glow-lichen generation logic as inspiration for this one
-    public static final Block VOID_BERRY_MOSS = registerBlockNoItem("void_berry_moss",
+    public static final Block VOID_BERRY_MOSS = registerBlockNoItem("voidberry_moss",
             new VoidBerryMoss(AbstractBlock.Settings.create()
                     .mapColor(MapColor.PURPLE)
                     .ticksRandomly()
                     .noCollision()
                     .breakInstantly()
-                    .nonOpaque()
                     .sounds(BlockSoundGroup.LILY_PAD)
                     .pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block THORNBERRY_BRANCH = registerBlockNoItem("thornberry_branch",
+            new ThornBerryBranch(AbstractBlock.Settings.create().strength(1).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
+                    .pistonBehavior(PistonBehavior.DESTROY).noCollision().luminance(state -> state.get(ThornBerryBranch.AGE) == 3 ? 4 : 0)
+                    .mapColor(MapColor.DARK_GREEN)));
 
 
     //Helper functions

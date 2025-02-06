@@ -18,7 +18,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
                 .add(ModBlocks.RIMEBERRY_BUSH)
                 .add(ModBlocks.FIRESHINE_BERRY_BODY)
-                .add(ModBlocks.FIRESHINE_BERRY_HEAD);
+                .add(ModBlocks.FIRESHINE_BERRY_HEAD)
+                .add(ModBlocks.VOID_BERRY_MOSS)
+                .add(ModBlocks.THORNBERRY_BRANCH);
 
         getOrCreateTagBuilder(BlockTags.CLIMBABLE)
                 .add(ModBlocks.FIRESHINE_BERRY_BODY)
