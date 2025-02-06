@@ -43,6 +43,11 @@ public class ModModelProvider extends FabricModelProvider {
                                 )
                                 .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
                 );
+
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.THORNBERRY_BRANCH)
+                .coordinate(BlockStateVariantMap.create(Properties.AGE_3).register(stage -> BlockStateVariant.create()
+                        .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.THORNBERRY_BRANCH,
+                                "_age" + stage, Models.CROSS, TextureMap::cross)))));
     }
 
     @Override
