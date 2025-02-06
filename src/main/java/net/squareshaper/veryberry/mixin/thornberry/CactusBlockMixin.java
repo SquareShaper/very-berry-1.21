@@ -19,12 +19,12 @@ public class CactusBlockMixin extends Block {
         super(settings);
     }
 
-    @Inject(at = @At("TAIL"), method = "randomTick")
+    @Inject(at = @At("HEAD"), method = "randomTick")
     private void veryberry$growBerry(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         //check if it's the bottom-most cactus block
         if (world.getBlockState(pos.down()).getBlock() != Blocks.CACTUS && !world.isAir(pos.up())) {
             //set yourself to tnt (for testing purposes)
-            Block blockToSet = Blocks.TNT;
+            Block blockToSet = Blocks.GREEN_CANDLE;
             world.setBlockState(pos, blockToSet.getDefaultState());
         }
     }
