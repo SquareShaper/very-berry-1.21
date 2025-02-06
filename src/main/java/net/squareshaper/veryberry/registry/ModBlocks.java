@@ -50,9 +50,8 @@ public class ModBlocks {
                     .pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block THORNBERRY_BRANCH = registerBlockNoItem("thornberry_branch",
-            new ThornBerryBranch(AbstractBlock.Settings.create().strength(1).sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
-                    .pistonBehavior(PistonBehavior.DESTROY).noCollision().luminance(state -> state.get(ThornBerryBranch.AGE) == 3 ? 4 : 0)
-                    .mapColor(MapColor.DARK_GREEN)));
+            new ThornBerryBranch(AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
+                    .pistonBehavior(PistonBehavior.DESTROY).noCollision().mapColor(MapColor.DARK_GREEN)));
 
 
     //Helper functions

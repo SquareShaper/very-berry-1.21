@@ -40,6 +40,7 @@ public class ThornBerryBranch extends Block implements Fertilizable {
     public ThornBerryBranch(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+//        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(AGE, 0));
     }
 
     @Override

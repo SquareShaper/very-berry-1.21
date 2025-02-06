@@ -52,10 +52,20 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        //Berries
         itemModelGenerator.register(ModItems.RIMEBERRIES, Models.GENERATED);
         itemModelGenerator.register(ModItems.FIRESHINE_BERRIES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOIDBERRIES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHRONOBERRIES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.THORNBERRIES, Models.GENERATED);
+        //Berry Foods
         itemModelGenerator.register(ModItems.FIRESHINE_BERRY_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RIMEBERRY_MUFFIN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VOIDBERRIES, Models.GENERATED);
+        //Berry Pastes
+        itemModelGenerator.register(ModItems.RIMEBERRY_PASTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FIRESHINE_BERRY_PASTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOIDBERRY_PASTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHRONOBERRY_PASTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.THORNBERRY_PASTE, Models.GENERATED);
     }
 }
