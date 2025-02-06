@@ -31,7 +31,8 @@ public class ModItems {
     public static final Item CHRONOBERRIES = registerItem("chronoberries", new AliasedEffectFoodItem(Blocks.STRIPPED_BAMBOO_BLOCK,
             new Item.Settings().food(ModFoodComponents.CHRONOBERRIES)));
 
-    public static final Item THORNBERRIES = registerItem("thornberries", new EffectFoodItem(new Item.Settings().food(ModFoodComponents.THORNBERRIES)));
+    public static final Item THORNBERRIES = registerItem("thornberries", new AliasedEffectFoodItem(ModBlocks.THORNBERRY_BRANCH,
+            new Item.Settings().food(ModFoodComponents.THORNBERRIES)));
 
     //Berry Foods
     public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", new DrinkItem(
