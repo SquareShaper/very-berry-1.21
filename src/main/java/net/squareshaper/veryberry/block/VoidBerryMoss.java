@@ -32,21 +32,21 @@ import net.minecraft.world.event.GameEvent;
 import net.squareshaper.veryberry.registry.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable{
+public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable {
     public static final int MAX_AGE = 3;
     public static final IntProperty AGE = Properties.AGE_3;
     public static final MapCodec<VoidBerryMoss> CODEC = createCodec(VoidBerryMoss::new);
     private static final SoundEvent PICK_SOUND = SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES;
 
     //the base model
-    protected static final Vec3d minCube0 = new Vec3d(2,2,15);
-    protected static final Vec3d maxCube0 = new Vec3d(14,14,16);
-    protected static final Vec3d minCube1 = new Vec3d(0,0,15);
-    protected static final Vec3d maxCube1 = new Vec3d(16,16,16);
-    protected static final Vec3d minCube2 = new Vec3d(4,3,7);
-    protected static final Vec3d maxCube2 = new Vec3d(12,12,15);
-    protected static final Vec3d minCube3 = new Vec3d(4,3,7);
-    protected static final Vec3d maxCube3 = new Vec3d(12,12,15);
+    protected static final Vec3d minCube0 = new Vec3d(2, 2, 15);
+    protected static final Vec3d maxCube0 = new Vec3d(14, 14, 16);
+    protected static final Vec3d minCube1 = new Vec3d(0, 0, 15);
+    protected static final Vec3d maxCube1 = new Vec3d(16, 16, 16);
+    protected static final Vec3d minCube2 = new Vec3d(4, 3, 7);
+    protected static final Vec3d maxCube2 = new Vec3d(12, 12, 15);
+    protected static final Vec3d minCube3 = new Vec3d(4, 3, 7);
+    protected static final Vec3d maxCube3 = new Vec3d(12, 12, 15);
 
 
     protected static final VoxelShape[] AGE_TO_EAST_SHAPE = new VoxelShape[]{
@@ -62,16 +62,16 @@ public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable
             Block.createCuboidShape(minCube3.getX(), minCube3.getY(), minCube3.getZ(), maxCube3.getX(), maxCube3.getY(), maxCube3.getZ())
     };
     protected static final VoxelShape[] AGE_TO_NORTH_SHAPE = new VoxelShape[]{
-            Block.createCuboidShape(minCube0.getX(), minCube0.getY(), 16-maxCube0.getZ(), maxCube0.getX(), maxCube0.getY(), 16-minCube0.getZ()),
-            Block.createCuboidShape(minCube1.getX(), minCube1.getY(), 16-maxCube1.getZ(), maxCube1.getX(), maxCube1.getY(), 16-minCube1.getZ()),
-            Block.createCuboidShape(minCube2.getX(), minCube2.getY(), 16-maxCube2.getZ(), maxCube2.getX(), maxCube2.getY(), 16-minCube2.getZ()),
-            Block.createCuboidShape(minCube3.getX(), minCube3.getY(), 16-maxCube3.getZ(), maxCube3.getX(), maxCube3.getY(), 16-minCube3.getZ())
+            Block.createCuboidShape(minCube0.getX(), minCube0.getY(), 16 - maxCube0.getZ(), maxCube0.getX(), maxCube0.getY(), 16 - minCube0.getZ()),
+            Block.createCuboidShape(minCube1.getX(), minCube1.getY(), 16 - maxCube1.getZ(), maxCube1.getX(), maxCube1.getY(), 16 - minCube1.getZ()),
+            Block.createCuboidShape(minCube2.getX(), minCube2.getY(), 16 - maxCube2.getZ(), maxCube2.getX(), maxCube2.getY(), 16 - minCube2.getZ()),
+            Block.createCuboidShape(minCube3.getX(), minCube3.getY(), 16 - maxCube3.getZ(), maxCube3.getX(), maxCube3.getY(), 16 - minCube3.getZ())
     };
     protected static final VoxelShape[] AGE_TO_WEST_SHAPE = new VoxelShape[]{
-            Block.createCuboidShape(16-maxCube0.getZ(), minCube0.getY(), minCube0.getX(), 16-minCube0.getZ(), maxCube0.getY(), maxCube0.getX()),
-            Block.createCuboidShape(16-maxCube1.getZ(), minCube1.getY(), minCube1.getX(), 16-minCube1.getZ(), maxCube1.getY(), maxCube1.getX()),
-            Block.createCuboidShape(16-maxCube2.getZ(), minCube2.getY(), minCube2.getX(), 16-minCube2.getZ(), maxCube2.getY(), maxCube2.getX()),
-            Block.createCuboidShape(16-maxCube3.getZ(), minCube3.getY(), minCube3.getX(), 16-minCube3.getZ(), maxCube3.getY(), maxCube3.getX())
+            Block.createCuboidShape(16 - maxCube0.getZ(), minCube0.getY(), minCube0.getX(), 16 - minCube0.getZ(), maxCube0.getY(), maxCube0.getX()),
+            Block.createCuboidShape(16 - maxCube1.getZ(), minCube1.getY(), minCube1.getX(), 16 - minCube1.getZ(), maxCube1.getY(), maxCube1.getX()),
+            Block.createCuboidShape(16 - maxCube2.getZ(), minCube2.getY(), minCube2.getX(), 16 - minCube2.getZ(), maxCube2.getY(), maxCube2.getX()),
+            Block.createCuboidShape(16 - maxCube3.getZ(), minCube3.getY(), minCube3.getX(), 16 - minCube3.getZ(), maxCube3.getY(), maxCube3.getX())
     };
 
     public VoidBerryMoss(Settings settings) {
@@ -124,7 +124,7 @@ public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable
 
     @Override
     protected boolean hasRandomTicks(BlockState state) {
-        return state.get(AGE) < MAX_AGE;
+        return true;
     }
 
     @Override
@@ -133,6 +133,38 @@ public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable
             int i = state.get(AGE);
             if (i < MAX_AGE) {
                 world.setBlockState(pos, state.with(AGE, i + 1), Block.NOTIFY_LISTENERS);
+            }
+            if (i == MAX_AGE) {
+                if (world.random.nextInt(5) == 0) {
+                    Direction[] directions = {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST, Direction.UP, Direction.DOWN};
+                    //first, check in a random direction, if it's air
+                    int direction = world.random.nextInt(6);
+                    if (world.getBlockState(pos.offset(directions[direction])).isAir()) {
+                        //then, run 4 if's to see if there is a wall next to that air block
+                        boolean hasWall = false;
+                        BlockState blockState = this.getDefaultState();
+                        if (world.getBlockState(pos.offset(directions[direction]).north()).getBlock() == Blocks.END_STONE) {
+                            hasWall = true;
+                            blockState = blockState.with(FACING, Direction.NORTH);
+                        }
+                        if (world.getBlockState(pos.offset(directions[direction]).east()).getBlock() == Blocks.END_STONE) {
+                            hasWall = true;
+                            blockState = blockState.with(FACING, Direction.EAST);
+                        }
+                        if (world.getBlockState(pos.offset(directions[direction]).south()).getBlock() == Blocks.END_STONE) {
+                            hasWall = true;
+                            blockState = blockState.with(FACING, Direction.SOUTH);
+                        }
+                        if (world.getBlockState(pos.offset(directions[direction]).west()).getBlock() == Blocks.END_STONE) {
+                            hasWall = true;
+                            blockState = blockState.with(FACING, Direction.WEST);
+                        }
+                        if (hasWall) {
+                            //then place some new voidberrymoss, if there was a wall next to the air block
+                            world.setBlockState(pos.offset(directions[direction]), blockState);
+                        }
+                    }
+                }
             }
         }
     }
@@ -156,6 +188,7 @@ public class VoidBerryMoss extends HorizontalFacingBlock implements Fertilizable
     @Override
     protected boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos.offset(state.get(FACING)));
+        //gonna have to change the randomTick() code as well, if I want to change what it grows on
         return blockState.getBlock() == Blocks.END_STONE;
     }
 
