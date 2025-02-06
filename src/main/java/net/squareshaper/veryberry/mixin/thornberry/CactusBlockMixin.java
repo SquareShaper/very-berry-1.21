@@ -37,7 +37,7 @@ public class CactusBlockMixin extends Block {
 
                 //add a branch, in a random direction, and at a random height (not at the bottom tho)
                 Direction[] directions = {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
-                int direction = world.getRandom().nextInt(3);
+                int direction = world.getRandom().nextInt(4);
                 int height = world.getRandom().nextInt(i - 1) + 1;
                 //first, check if there's a branch at this height already, then only a 10% chance to grow (technically lower, since branches), if there are 2, don't grow
                 int branchSum = 0;
