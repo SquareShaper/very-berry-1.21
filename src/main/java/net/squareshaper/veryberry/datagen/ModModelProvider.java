@@ -2,6 +2,7 @@ package net.squareshaper.veryberry.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
@@ -48,6 +49,17 @@ public class ModModelProvider extends FabricModelProvider {
                 .coordinate(BlockStateVariantMap.create(Properties.AGE_3).register(stage -> BlockStateVariant.create()
                         .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.THORNBERRY_BRANCH,
                                 "_age" + stage, Models.CROSS, TextureMap::cross)))));
+
+//        blockStateModelGenerator.blockStateCollector
+//                .accept(
+//                        VariantsBlockStateSupplier.create(ModBlocks.CHRONOBERRY_PLANT)
+//                                .coordinate(
+//                                        BlockStateVariantMap.create(Properties.DOUBLE_BLOCK_HALF)
+//                                                .register(DoubleBlockHalf.LOWER, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_bottom")))
+//                                                .register(DoubleBlockHalf.UPPER, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_top"))
+//                                                )
+//                                ));
+
     }
 
     @Override

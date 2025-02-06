@@ -53,6 +53,10 @@ public class ModBlocks {
             new ThornBerryBranch(AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).ticksRandomly()
                     .pistonBehavior(PistonBehavior.DESTROY).noCollision().mapColor(MapColor.DARK_GREEN)));
 
+//    public static final Block CHRONOBERRY_PLANT = registerBlockNoItem("chronoberry_plant",
+//            new ChronoberryPlant(AbstractBlock.Settings.create().breakInstantly().sounds(BlockSoundGroup.CROP).ticksRandomly()
+//                    .pistonBehavior(PistonBehavior.DESTROY).noCollision().mapColor(MapColor.EMERALD_GREEN)));
+
 
     //Helper functions
     private static Block registerBlock(String name, Block block) {
