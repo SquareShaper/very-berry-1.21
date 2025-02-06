@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "very-berry:block/rime_berry_bush_age3"
+    "cross": "very-berry:block/thornberry_branch_age0"
   }
 }

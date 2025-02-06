@@ -10,7 +10,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "very-berry:rime_berry_bush",
+          "block": "very-berry:rimeberry_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "3"
@@ -48,7 +48,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "very-berry:rime_berry_bush",
+          "block": "very-berry:rimeberry_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "2"

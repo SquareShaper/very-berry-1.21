@@ -1,7 +1,9 @@
 {
   "values": [
-    "very-berry:rime_berry_bush",
+    "very-berry:rimeberry_bush",
     "very-berry:fireshine_berry_body",
-    "very-berry:fireshine_berry_head"
+    "very-berry:fireshine_berry_head",
+    "very-berry:voidberry_moss",
+    "very-berry:thornberry_branch"
   ]
 }
