@@ -20,7 +20,7 @@ public class ThornyEffect extends StatusEffect {
     public void onEntityDamage(LivingEntity entity, int amplifier, DamageSource source, float amount) {
         Entity attacker = source.getAttacker();
         if (attacker != null) {
-            attacker.damage(entity.getWorld().getDamageSources().thorns(entity), amplifier);
+            attacker.damage(entity.getWorld().getDamageSources().thorns(entity), amplifier + 2);
         }
         super.onEntityDamage(entity, amplifier, source, amount);
     }
