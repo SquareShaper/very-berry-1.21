@@ -18,7 +18,7 @@ public class VeryBerryClient implements ClientModInitializer {
         berryBlocks.add(ModBlocks.FIRESHINE_BERRY_HEAD);
         berryBlocks.add(ModBlocks.VOID_BERRY_MOSS);
         berryBlocks.add(ModBlocks.THORNBERRY_BRANCH);
-//        berryBlocks.add(ModBlocks.CHRONOBERRY_PLANT);
+        berryBlocks.add(ModBlocks.CHRONOBERRY_PLANT);
 
         for (Block berry : berryBlocks) {
             BlockRenderLayerMap.INSTANCE.putBlock(berry, RenderLayer.getCutout());

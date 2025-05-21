@@ -78,6 +78,17 @@ public class ModItems {
             entries.addAfter(Items.SWEET_BERRIES, ModItems.FIRESHINE_BERRIES);
         });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.addAfter(Items.COPPER_BULB,ModBlocks.NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.EXPOSED_COPPER_BULB,ModBlocks.EXPOSED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.WEATHERED_COPPER_BULB,ModBlocks.WEATHERED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.OXIDIZED_COPPER_BULB,ModBlocks.OXIDIZED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.WAXED_COPPER_BULB,ModBlocks.WAXED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.WAXED_EXPOSED_COPPER_BULB,ModBlocks.WAXED_EXPOSED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.WAXED_WEATHERED_COPPER_BULB,ModBlocks.WAXED_WEATHERED_NOTCHED_COPPER_BLOCK);
+            entries.addAfter(Items.WAXED_OXIDIZED_COPPER_BULB,ModBlocks.WAXED_OXIDIZED_NOTCHED_COPPER_BLOCK);
+        });
+
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
 //            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.THORNBERRY_PASTE);
 //            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.CHRONOBERRY_PASTE);

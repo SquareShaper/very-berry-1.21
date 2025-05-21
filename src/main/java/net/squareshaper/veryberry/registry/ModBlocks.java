@@ -1,8 +1,6 @@
 package net.squareshaper.veryberry.registry;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
+import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -57,6 +55,36 @@ public class ModBlocks {
     public static final Block CHRONOBERRY_PLANT = registerBlockNoItem("chronoberry_plant",
             new ChronoberryPlant(Block.Settings.create().breakInstantly().sounds(BlockSoundGroup.CROP).ticksRandomly()
                     .pistonBehavior(PistonBehavior.DESTROY).noCollision().mapColor(MapColor.EMERALD_GREEN)));
+
+    //the Copper block that chronoberries spawn from
+    public static final Block NOTCHED_COPPER_BLOCK = registerBlock("notched_copper_block",
+            new OxidizableNotchedBlock(Oxidizable.OxidationLevel.UNAFFECTED,AbstractBlock.Settings.create().ticksRandomly()
+                    .sounds(BlockSoundGroup.COPPER).mapColor(Blocks.COPPER_BLOCK.getDefaultMapColor()).strength(3.0F, 6.0F)
+                    .requiresTool()));
+
+    public static final Block EXPOSED_NOTCHED_COPPER_BLOCK = registerBlock("exposed_notched_copper_block",
+            new OxidizableNotchedBlock(Oxidizable.OxidationLevel.EXPOSED,AbstractBlock.Settings.copy(NOTCHED_COPPER_BLOCK)
+                    .mapColor(MapColor.TERRACOTTA_LIGHT_GRAY)));
+
+    public static final Block WEATHERED_NOTCHED_COPPER_BLOCK = registerBlock("weathered_notched_copper_block",
+            new OxidizableNotchedBlock(Oxidizable.OxidationLevel.WEATHERED,AbstractBlock.Settings.copy(NOTCHED_COPPER_BLOCK)
+                    .mapColor(MapColor.DARK_AQUA)));
+
+    public static final Block OXIDIZED_NOTCHED_COPPER_BLOCK = registerBlock("oxidized_notched_copper_block",
+            new OxidizableNotchedBlock(Oxidizable.OxidationLevel.OXIDIZED,AbstractBlock.Settings.copy(NOTCHED_COPPER_BLOCK)
+                    .mapColor(MapColor.TEAL)));
+
+    public static final Block WAXED_NOTCHED_COPPER_BLOCK = registerBlock("waxed_notched_copper_block",
+            new NotchedBlock(AbstractBlock.Settings.copy(NOTCHED_COPPER_BLOCK)));
+
+    public static final Block WAXED_EXPOSED_NOTCHED_COPPER_BLOCK = registerBlock("waxed_exposed_notched_copper_block",
+            new NotchedBlock(AbstractBlock.Settings.copy(EXPOSED_NOTCHED_COPPER_BLOCK)));
+
+    public static final Block WAXED_WEATHERED_NOTCHED_COPPER_BLOCK = registerBlock("waxed_weathered_notched_copper_block",
+            new NotchedBlock(AbstractBlock.Settings.copy(WEATHERED_NOTCHED_COPPER_BLOCK)));
+
+    public static final Block WAXED_OXIDIZED_NOTCHED_COPPER_BLOCK = registerBlock("waxed_oxidized_notched_copper_block",
+            new NotchedBlock(AbstractBlock.Settings.copy(OXIDIZED_NOTCHED_COPPER_BLOCK)));
 
 
     //Helper functions
