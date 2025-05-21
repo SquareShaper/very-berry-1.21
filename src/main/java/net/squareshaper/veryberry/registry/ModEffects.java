@@ -19,8 +19,7 @@ public class ModEffects {
             EntityAttributeModifier.Operation.ADD_VALUE));
 
     public static final RegistryEntry<StatusEffect> RETURN = registerEffect("return", new ReturnEffect(StatusEffectCategory.NEUTRAL,
-            0x6805f2).addAttributeModifier(EntityAttributes.GENERIC_ARMOR, VeryBerry.id("return"), 15,
-            EntityAttributeModifier.Operation.ADD_VALUE));
+            0x6805f2));
 
     public static final RegistryEntry<StatusEffect> THORNY = registerEffect("thorny", new ThornyEffect(StatusEffectCategory.BENEFICIAL,
             0x6805f2));
