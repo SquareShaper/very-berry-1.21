@@ -2,10 +2,10 @@ package net.squareshaper.veryberry.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.CropBlock;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.squareshaper.veryberry.block.TallBerryBlock;
 import net.squareshaper.veryberry.registry.ModBlocks;
 import net.squareshaper.veryberry.registry.ModItems;
 
@@ -50,7 +50,7 @@ public class ModModelProvider extends FabricModelProvider {
                         .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.THORNBERRY_BRANCH,
                                 "_age" + stage, Models.CROSS, TextureMap::cross)))));
 
-        BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(CropBlock.AGE, Properties.DOUBLE_BLOCK_HALF).register((age, half) -> {
+        BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(TallBerryBlock.AGE, Properties.DOUBLE_BLOCK_HALF).register((age, half) -> {
             return switch (half) {
                 case UPPER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_top_stage_" + age));
                 case LOWER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_bottom_stage_" + age));
@@ -70,11 +70,11 @@ public class ModModelProvider extends FabricModelProvider {
         //Berry Foods
         itemModelGenerator.register(ModItems.FIRESHINE_BERRY_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RIMEBERRY_MUFFIN, Models.GENERATED);
-        //Berry Pastes
-        itemModelGenerator.register(ModItems.RIMEBERRY_PASTE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FIRESHINE_BERRY_PASTE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VOIDBERRY_PASTE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHRONOBERRY_PASTE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.THORNBERRY_PASTE, Models.GENERATED);
+        //Berry Pastes - WIP
+//        itemModelGenerator.register(ModItems.RIMEBERRY_PASTE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.FIRESHINE_BERRY_PASTE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.VOIDBERRY_PASTE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.CHRONOBERRY_PASTE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.THORNBERRY_PASTE, Models.GENERATED);
     }
 }

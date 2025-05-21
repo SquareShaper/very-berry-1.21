@@ -47,12 +47,12 @@ public class ModItems {
     public static final Item RIMEBERRY_MUFFIN = registerItem("rimeberry_muffin", new EffectFoodItem(
             new Item.Settings().food(ModFoodComponents.RIMEBERRY_MUFFIN).recipeRemainder(Items.BUCKET)));
 
-    //Pastes
-    public static final Item FIRESHINE_BERRY_PASTE = registerItem("fireshine_berry_paste", new Item(new Item.Settings()));
-    public static final Item RIMEBERRY_PASTE = registerItem("rimeberry_paste", new Item(new Item.Settings()));
-    public static final Item VOIDBERRY_PASTE = registerItem("voidberry_paste", new Item(new Item.Settings()));
-    public static final Item CHRONOBERRY_PASTE = registerItem("chronoberry_paste", new Item(new Item.Settings()));
-    public static final Item THORNBERRY_PASTE = registerItem("thornberry_paste", new Item(new Item.Settings()));
+    //Pastes - WIP
+//    public static final Item FIRESHINE_BERRY_PASTE = registerItem("fireshine_berry_paste", new Item(new Item.Settings()));
+//    public static final Item RIMEBERRY_PASTE = registerItem("rimeberry_paste", new Item(new Item.Settings()));
+//    public static final Item VOIDBERRY_PASTE = registerItem("voidberry_paste", new Item(new Item.Settings()));
+//    public static final Item CHRONOBERRY_PASTE = registerItem("chronoberry_paste", new Item(new Item.Settings()));
+//    public static final Item THORNBERRY_PASTE = registerItem("thornberry_paste", new Item(new Item.Settings()));
 
 
 
@@ -78,12 +78,12 @@ public class ModItems {
             entries.addAfter(Items.SWEET_BERRIES, ModItems.FIRESHINE_BERRIES);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.THORNBERRY_PASTE);
-            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.CHRONOBERRY_PASTE);
-            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.VOIDBERRY_PASTE);
-            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.RIMEBERRY_PASTE);
-            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.FIRESHINE_BERRY_PASTE);
-        });
+//        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+//            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.THORNBERRY_PASTE);
+//            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.CHRONOBERRY_PASTE);
+//            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.VOIDBERRY_PASTE);
+//            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.RIMEBERRY_PASTE);
+//            entries.addAfter(Items.ARMADILLO_SCUTE, ModItems.FIRESHINE_BERRY_PASTE);
+//        });
     }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "very-berry:item/chronoberry_paste"
-  }
-}
