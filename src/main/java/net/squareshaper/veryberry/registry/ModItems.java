@@ -9,6 +9,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.squareshaper.veryberry.VeryBerry;
 import net.squareshaper.veryberry.item.AliasedEffectFoodItem;
 import net.squareshaper.veryberry.item.DrinkItem;
@@ -39,7 +40,7 @@ public class ModItems {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             super.appendTooltip(stack, context, tooltip, type);
-            tooltip.add(Text.translatable("item.very-berry.fireshine_berry_juice.tooltip"));
+            tooltip.add(Text.translatable("item.very-berry.fireshine_berry_juice.tooltip").formatted(Formatting.GRAY));
         }
     });
 
