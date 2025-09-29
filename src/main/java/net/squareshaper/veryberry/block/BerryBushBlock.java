@@ -49,7 +49,7 @@ public class BerryBushBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+    protected ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
         return getBerryDrop().getDefaultStack();
     }
 

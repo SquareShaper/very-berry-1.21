@@ -1,5 +1,5 @@
-// 1.21.2	2025-09-29T11:34:55.5692745	Very Berry/VeryBerryRecipes
-f38e7672f37167cdd47d546981c6a257b9b8e383 data\very-berry\recipe\fireshine_berry_juice.json
-2e7b7162e78da7a9deea006828f2774c3db88953 data\very-berry\advancement\recipes\food\rimeberry_muffin.json
-6af54e02b2e41d91049cf0e440ea8a55b7a9a450 data\very-berry\advancement\recipes\food\fireshine_berry_juice.json
-850da4634a13fce5d59f44ec7a6aa1995695c136 data\very-berry\recipe\rimeberry_muffin.json
+// 1.21.4	-999999999-01-01T00:00:00	Very Berry/VeryBerryRecipes
+6af54e02b2e41d91049cf0e440ea8a55b7a9a450 data/very-berry/advancement/recipes/food/fireshine_berry_juice.json
+2e7b7162e78da7a9deea006828f2774c3db88953 data/very-berry/advancement/recipes/food/rimeberry_muffin.json
+f38e7672f37167cdd47d546981c6a257b9b8e383 data/very-berry/recipe/fireshine_berry_juice.json
+850da4634a13fce5d59f44ec7a6aa1995695c136 data/very-berry/recipe/rimeberry_muffin.json

@@ -59,7 +59,7 @@ public class FireShineBerryHead extends AbstractPlantStemBlock implements Fertil
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+    protected ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
         return new ItemStack(ModItems.FIRESHINE_BERRIES);
     }
 
