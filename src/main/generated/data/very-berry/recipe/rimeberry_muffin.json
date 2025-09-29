@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "very-berry:rimeberries"
-    },
-    {
-      "item": "very-berry:rimeberries"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:wheat"
-    },
-    {
-      "item": "minecraft:milk_bucket"
-    }
+    "very-berry:rimeberries",
+    "very-berry:rimeberries",
+    "minecraft:wheat",
+    "minecraft:wheat",
+    "minecraft:milk_bucket"
   ],
   "result": {
     "count": 2,

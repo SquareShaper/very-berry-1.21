@@ -8,56 +8,62 @@ import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.squareshaper.veryberry.VeryBerry;
 import net.squareshaper.veryberry.item.AliasedEffectFoodItem;
-import net.squareshaper.veryberry.item.DrinkItem;
 import net.squareshaper.veryberry.item.EffectFoodItem;
 
 import java.util.List;
+import java.util.function.Function;
 
 public class ModItems {
     //Berries
-    public static final Item RIMEBERRIES = registerItem("rimeberries", new AliasedEffectFoodItem(ModBlocks.RIMEBERRY_BUSH,
-            new Item.Settings().food(ModFoodComponents.RIMEBERRIES)));
+    public static final Item RIMEBERRIES = registerItem("rimeberries", setting -> new AliasedEffectFoodItem(ModBlocks.RIMEBERRY_BUSH,
+            setting.food(ModFoodComponents.RIMEBERRIES, ModFoodComponents.RIMEBERRIES_EFFECT).useItemPrefixedTranslationKey()));
 
-    public static final Item FIRESHINE_BERRIES = registerItem("fireshine_berries", new AliasedEffectFoodItem(ModBlocks.FIRESHINE_BERRY_HEAD,
-            new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRIES)));
+    public static final Item FIRESHINE_BERRIES = registerItem("fireshine_berries", setting -> new AliasedEffectFoodItem(ModBlocks.FIRESHINE_BERRY_HEAD,
+            setting.food(ModFoodComponents.FIRESHINE_BERRIES, ModFoodComponents.FIRESHINE_BERRIES_EFFECT).useItemPrefixedTranslationKey()));
 
-    public static final Item VOIDBERRIES = registerItem("voidberries", new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_MOSS,
-            new Item.Settings().food(ModFoodComponents.VOIDBERRIES)));
+    public static final Item VOIDBERRIES = registerItem("voidberries", setting -> new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_MOSS,
+            setting.food(ModFoodComponents.VOIDBERRIES, ModFoodComponents.VOIDBERRIES_EFFECT).useItemPrefixedTranslationKey()));
 
-    public static final Item CHRONOBERRIES = registerItem("chronoberries", new AliasedEffectFoodItem(ModBlocks.CHRONOBERRY_PLANT,
-            new Item.Settings().food(ModFoodComponents.CHRONOBERRIES)));
+    //Remember to change the block back to ModBlocks.CHRONOBERRY_PLANT!
+    public static final Item CHRONOBERRIES = registerItem("chronoberries", setting -> new AliasedEffectFoodItem(ModBlocks.RIMEBERRY_BUSH,
+            setting.food(ModFoodComponents.CHRONOBERRIES, ModFoodComponents.CHRONOBERRIES_EFFECT).useItemPrefixedTranslationKey()));
 
-    public static final Item THORNBERRIES = registerItem("thornberries", new AliasedEffectFoodItem(ModBlocks.THORNBERRY_BRANCH,
-            new Item.Settings().food(ModFoodComponents.THORNBERRIES)));
+    public static final Item THORNBERRIES = registerItem("thornberries", setting -> new AliasedEffectFoodItem(ModBlocks.THORNBERRY_BRANCH,
+            setting.food(ModFoodComponents.THORNBERRIES, ModFoodComponents.THORNBERRIES_EFFECT).useItemPrefixedTranslationKey()));
 
     //Berry Foods
-    public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", new DrinkItem(
-            new Item.Settings().food(ModFoodComponents.FIRESHINE_BERRY_JUICE), Items.GLASS_BOTTLE) {
+    public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", setting -> new Item(
+            setting.food(ModFoodComponents.FIRESHINE_BERRY_JUICE, ModFoodComponents.FIRESHINE_BERRY_JUICE_EFFECT)
+                    .useRemainder(Items.GLASS_BOTTLE)) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             super.appendTooltip(stack, context, tooltip, type);
+            VeryBerry.addEffectTooltips(tooltip, stack);
             tooltip.add(Text.translatable("item.very-berry.fireshine_berry_juice.tooltip").formatted(Formatting.GRAY));
         }
     });
 
-    public static final Item RIMEBERRY_MUFFIN = registerItem("rimeberry_muffin", new EffectFoodItem(
-            new Item.Settings().food(ModFoodComponents.RIMEBERRY_MUFFIN).recipeRemainder(Items.BUCKET)));
+    public static final Item RIMEBERRY_MUFFIN = registerItem("rimeberry_muffin", setting -> new EffectFoodItem(
+            setting.food(ModFoodComponents.RIMEBERRY_MUFFIN, ModFoodComponents.RIMEBERRY_MUFFIN_EFFECT).recipeRemainder(Items.BUCKET)));
 
     //Pastes - WIP
-//    public static final Item FIRESHINE_BERRY_PASTE = registerItem("fireshine_berry_paste", new Item(new Item.Settings()));
-//    public static final Item RIMEBERRY_PASTE = registerItem("rimeberry_paste", new Item(new Item.Settings()));
-//    public static final Item VOIDBERRY_PASTE = registerItem("voidberry_paste", new Item(new Item.Settings()));
-//    public static final Item CHRONOBERRY_PASTE = registerItem("chronoberry_paste", new Item(new Item.Settings()));
-//    public static final Item THORNBERRY_PASTE = registerItem("thornberry_paste", new Item(new Item.Settings()));
+//    public static final Item FIRESHINE_BERRY_PASTE = registerItem("fireshine_berry_paste", setting -> new Item(setting));
+//    public static final Item RIMEBERRY_PASTE = registerItem("rimeberry_paste", setting -> new Item(setting));
+//    public static final Item VOIDBERRY_PASTE = registerItem("voidberry_paste", setting -> new Item(setting));
+//    public static final Item CHRONOBERRY_PASTE = registerItem("chronoberry_paste", setting -> new Item(setting));
+//    public static final Item THORNBERRY_PASTE = registerItem("thornberry_paste", setting -> new Item(setting));
 
 
 
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, VeryBerry.id(name), item);
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, VeryBerry.id(name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, VeryBerry.id(name)))));
     }
 
     public static void registerModItems() {
@@ -79,14 +85,14 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.addAfter(Items.COPPER_BULB,ModBlocks.NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.EXPOSED_COPPER_BULB,ModBlocks.EXPOSED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.WEATHERED_COPPER_BULB,ModBlocks.WEATHERED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.OXIDIZED_COPPER_BULB,ModBlocks.OXIDIZED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.WAXED_COPPER_BULB,ModBlocks.WAXED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.WAXED_EXPOSED_COPPER_BULB,ModBlocks.WAXED_EXPOSED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.WAXED_WEATHERED_COPPER_BULB,ModBlocks.WAXED_WEATHERED_NOTCHED_COPPER_BLOCK);
-            entries.addAfter(Items.WAXED_OXIDIZED_COPPER_BULB,ModBlocks.WAXED_OXIDIZED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.COPPER_BULB,ModBlocks.NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.EXPOSED_COPPER_BULB,ModBlocks.EXPOSED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.WEATHERED_COPPER_BULB,ModBlocks.WEATHERED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.OXIDIZED_COPPER_BULB,ModBlocks.OXIDIZED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.WAXED_COPPER_BULB,ModBlocks.WAXED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.WAXED_EXPOSED_COPPER_BULB,ModBlocks.WAXED_EXPOSED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.WAXED_WEATHERED_COPPER_BULB,ModBlocks.WAXED_WEATHERED_NOTCHED_COPPER_BLOCK);
+//            entries.addAfter(Items.WAXED_OXIDIZED_COPPER_BULB,ModBlocks.WAXED_OXIDIZED_NOTCHED_COPPER_BLOCK);
         });
 
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

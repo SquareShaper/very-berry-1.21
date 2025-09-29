@@ -46,7 +46,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder fireshineBerryDrops(Block block, Item item, float minDrops, float maxDrops) {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
 
         return this.applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().conditionally(
@@ -59,7 +59,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder berryBushDrops(Block block, Item item, float minDrops, float maxDrops, int harvestAge) {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
 
         return this.applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().conditionally(
@@ -78,7 +78,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder berryBushDropsAge(Block block, Item item, float minDrops, float maxDrops, int harvestAge) {
-        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
 
         return this.applyExplosionDecay(block, LootTable.builder()
                 .pool(LootPool.builder().conditionally(

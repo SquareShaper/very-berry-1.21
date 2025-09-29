@@ -16,7 +16,7 @@ public class EffectFoodItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        VeryBerry.addEffectTooltips(tooltip, stack);
         super.appendTooltip(stack, context, tooltip, type);
+        VeryBerry.addEffectTooltips(tooltip, stack);
     }
 }

@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.squareshaper.veryberry.cca.ModEntityComponents;
@@ -21,7 +22,7 @@ public class VoidSkipperEffect extends StatusEffect {
     //#140126
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(ServerWorld serverWorld, LivingEntity entity, int amplifier) {
         Vec3d pos = entity.getPos();
         Vec3d vel = entity.getVelocity();
 
@@ -80,7 +81,7 @@ public class VoidSkipperEffect extends StatusEffect {
             ModEntityComponents.VOID_SKIPPING.get(entity).incrementCounter();
         }
 
-        return super.applyUpdateEffect(entity, amplifier);
+        return super.applyUpdateEffect(serverWorld, entity, amplifier);
     }
 
     private double velFromHeightTicks(double height, int ticks, double drag, double acc) {

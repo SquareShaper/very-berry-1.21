@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
-import net.squareshaper.veryberry.block.TallBerryBlock;
 import net.squareshaper.veryberry.registry.ModBlocks;
 import net.squareshaper.veryberry.registry.ModItems;
 
@@ -50,13 +49,13 @@ public class ModModelProvider extends FabricModelProvider {
                         .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.THORNBERRY_BRANCH,
                                 "_age" + stage, Models.CROSS, TextureMap::cross)))));
 
-        BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(TallBerryBlock.AGE, Properties.DOUBLE_BLOCK_HALF).register((age, half) -> {
-            return switch (half) {
-                case UPPER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_top_stage_" + age));
-                case LOWER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_bottom_stage_" + age));
-            };
-        });
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.CHRONOBERRY_PLANT).coordinate(blockStateVariantMap));
+//        BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(TallBerryBlock.AGE, Properties.DOUBLE_BLOCK_HALF).register((age, half) -> {
+//            return switch (half) {
+//                case UPPER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_top_stage_" + age));
+//                case LOWER -> BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.CHRONOBERRY_PLANT, "_bottom_stage_" + age));
+//            };
+//        });
+//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.CHRONOBERRY_PLANT).coordinate(blockStateVariantMap));
     }
 
     @Override

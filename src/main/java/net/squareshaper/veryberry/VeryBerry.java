@@ -3,9 +3,10 @@ package net.squareshaper.veryberry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
+import net.minecraft.item.consume.ConsumeEffect;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -102,15 +103,19 @@ public class VeryBerry implements ModInitializer {
 	}
 
 	public static void addEffectTooltips(List<Text> tooltip, ItemStack stack) {
-		List<FoodComponent.StatusEffectEntry> effects = stack.get(DataComponentTypes.FOOD).effects();
+		List<ConsumeEffect> consumeEffects = stack.get(DataComponentTypes.CONSUMABLE).onConsumeEffects();
 
-		if (!effects.isEmpty()) {
-			for (FoodComponent.StatusEffectEntry effectEntry : effects) {
-				StatusEffectInstance effect = effectEntry.effect();
+		if (!consumeEffects.isEmpty()) {
+			for (ConsumeEffect consumeEffect : consumeEffects) {
+				if (consumeEffect instanceof ApplyEffectsConsumeEffect applyEffectsConsumeEffect) {
+					List<StatusEffectInstance> effects = applyEffectsConsumeEffect.effects();
 
-				tooltip.add(Text.translatable("tooltip.very-berry.effect", Text.translatable(effect.getTranslationKey()),
-						romanNumeralsOrEmpty(effect.getAmplifier()),
-						VeryBerry.tickToTime(effect.getDuration())).formatted(Formatting.BLUE));
+					for (StatusEffectInstance effect : effects) {
+						tooltip.add(Text.translatable("tooltip.very-berry.effect", Text.translatable(effect.getTranslationKey()),
+								romanNumeralsOrEmpty(effect.getAmplifier()),
+								VeryBerry.tickToTime(effect.getDuration())).formatted(Formatting.BLUE));
+					}
+				}
 			}
 		}
 	}

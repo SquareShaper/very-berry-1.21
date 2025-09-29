@@ -33,11 +33,11 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.21",
+		"minecraft": "1.21.2",
 		"java": ">=21",
 		"fabric-api": "*",
-		"cardinal-components-base": ">=6.1.2",
-		"cardinal-components-entity": ">=6.1.2"
+		"cardinal-components-base": ">=6.2.2",
+		"cardinal-components-entity": ">=6.2.2"
 	},
 	"custom": {
 		"cardinal-components": [

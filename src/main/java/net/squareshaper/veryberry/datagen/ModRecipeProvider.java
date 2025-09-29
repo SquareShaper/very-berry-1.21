@@ -4,7 +4,7 @@ package net.squareshaper.veryberry.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
@@ -18,26 +18,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(RecipeExporter recipeExporter) {
-        //Berry Foods
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.FIRESHINE_BERRY_JUICE)
-                .input(ModItems.FIRESHINE_BERRIES)
-                .input(ModItems.FIRESHINE_BERRIES)
-                .input(Items.SUGAR)
-                .input(ModItems.FIRESHINE_BERRIES)
-                .input(ModItems.FIRESHINE_BERRIES)
-                .input(Items.GLASS_BOTTLE)
-                .criterion(hasItem(ModItems.FIRESHINE_BERRIES), conditionsFromItem(ModItems.FIRESHINE_BERRIES))
-                .offerTo(recipeExporter);
+    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
+        return new RecipeGenerator(wrapperLookup, recipeExporter) {
+            public void generate() {
+                //Berry Foods
+                createShapeless(RecipeCategory.FOOD, ModItems.FIRESHINE_BERRY_JUICE)
+                        .input(ModItems.FIRESHINE_BERRIES)
+                        .input(ModItems.FIRESHINE_BERRIES)
+                        .input(Items.SUGAR)
+                        .input(ModItems.FIRESHINE_BERRIES)
+                        .input(ModItems.FIRESHINE_BERRIES)
+                        .input(Items.GLASS_BOTTLE)
+                        .criterion(hasItem(ModItems.FIRESHINE_BERRIES), conditionsFromItem(ModItems.FIRESHINE_BERRIES))
+                        .offerTo(recipeExporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.RIMEBERRY_MUFFIN, 2)
-                .input(ModItems.RIMEBERRIES)
-                .input(ModItems.RIMEBERRIES)
-                .input(Items.WHEAT)
-                .input(Items.WHEAT)
-                .input(Items.MILK_BUCKET)
-                .criterion(hasItem(ModItems.FIRESHINE_BERRIES), conditionsFromItem(ModItems.FIRESHINE_BERRIES))
-                .offerTo(recipeExporter);
+                createShapeless(RecipeCategory.FOOD, ModItems.RIMEBERRY_MUFFIN, 2)
+                        .input(ModItems.RIMEBERRIES)
+                        .input(ModItems.RIMEBERRIES)
+                        .input(Items.WHEAT)
+                        .input(Items.WHEAT)
+                        .input(Items.MILK_BUCKET)
+                        .criterion(hasItem(ModItems.FIRESHINE_BERRIES), conditionsFromItem(ModItems.FIRESHINE_BERRIES))
+                        .offerTo(recipeExporter);
 
 //          WIP Berry Pastes
 //        Map<Item, Item> BERRY_TO_PASTE =
@@ -52,5 +54,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 //            RecipeProvider.offerSmelting(recipeExporter, List.of(entry.getKey()),RecipeCategory.MISC, entry.getValue(),
 //                    0.35f/8, 200/8, "berry_paste");
 //        }
+            }
+        };
+    }
+
+    @Override
+    public String getName() {
+        return "VeryBerryRecipes";
     }
 }

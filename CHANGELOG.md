@@ -1,4 +1,3 @@
-
 # 1.0.3
 Added the Voidberries, along with a new block, the Voidberry Moss!  
 They're currently a work in progress, but you can access them from the creative mode inventory  

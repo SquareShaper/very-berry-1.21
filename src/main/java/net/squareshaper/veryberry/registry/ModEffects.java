@@ -15,7 +15,7 @@ import net.squareshaper.veryberry.effect.VoidSkipperEffect;
 public class ModEffects {
 
     public static final RegistryEntry<StatusEffect> VOID_SKIPPER = registerEffect("void_skipper", new VoidSkipperEffect(StatusEffectCategory.BENEFICIAL,
-            0x6805f2).addAttributeModifier(EntityAttributes.GENERIC_SAFE_FALL_DISTANCE, VeryBerry.id("void_skipper"), 15,
+            0x6805f2).addAttributeModifier(EntityAttributes.SAFE_FALL_DISTANCE, VeryBerry.id("void_skipper"), 15,
             EntityAttributeModifier.Operation.ADD_VALUE));
 
     public static final RegistryEntry<StatusEffect> RETURN = registerEffect("return", new ReturnEffect(StatusEffectCategory.NEUTRAL,
