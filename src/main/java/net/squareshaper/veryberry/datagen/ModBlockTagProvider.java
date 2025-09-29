@@ -15,7 +15,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
+        valueLookupBuilder(BlockTags.SWORD_EFFICIENT)
                 .add(ModBlocks.RIMEBERRY_BUSH)
                 .add(ModBlocks.FIRESHINE_BERRY_BODY)
                 .add(ModBlocks.FIRESHINE_BERRY_HEAD)
@@ -23,7 +23,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.THORNBERRY_BRANCH);
 //                .add(ModBlocks.CHRONOBERRY_PLANT);
 
-        getOrCreateTagBuilder(BlockTags.CLIMBABLE)
+        valueLookupBuilder(BlockTags.CLIMBABLE)
                 .add(ModBlocks.FIRESHINE_BERRY_BODY)
                 .add(ModBlocks.FIRESHINE_BERRY_HEAD)
                 .add(ModBlocks.VOID_BERRY_MOSS);

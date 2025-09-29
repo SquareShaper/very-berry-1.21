@@ -1,7 +1,7 @@
 package net.squareshaper.veryberry.cca;
 
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
@@ -30,11 +30,11 @@ public class ChronoBerryComponent implements AutoSyncedComponent {
     }
 
     @Override
-    public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        if (nbtCompound.getInt("X").isPresent() && nbtCompound.getInt("Y").isPresent() && nbtCompound.getInt("Z").isPresent()) {
-            this.x = nbtCompound.getInt("X").get();
-            this.y = nbtCompound.getInt("Y").get();
-            this.z = nbtCompound.getInt("Z").get();
+    public void readData(ReadView readView) {
+        if (readView.getOptionalInt("X").isPresent() && readView.getOptionalInt("Y").isPresent() && readView.getOptionalInt("Z").isPresent()) {
+            this.x = readView.getOptionalInt("X").get();
+            this.y = readView.getOptionalInt("Y").get();
+            this.z = readView.getOptionalInt("Z").get();
             this.unset = false;
         }
         else {
@@ -43,9 +43,9 @@ public class ChronoBerryComponent implements AutoSyncedComponent {
     }
 
     @Override
-    public void writeToNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        nbtCompound.putInt("X", this.x);
-        nbtCompound.putInt("Y", this.y);
-        nbtCompound.putInt("Z", this.z);
+    public void writeData(WriteView writeView) {
+        writeView.putInt("X", this.x);
+        writeView.putInt("Y", this.y);
+        writeView.putInt("Z", this.z);
     }
 }

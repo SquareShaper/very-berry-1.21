@@ -26,7 +26,7 @@ public class VoidSkipperEffect extends StatusEffect {
         Vec3d pos = entity.getPos();
         Vec3d vel = entity.getVelocity();
 
-        Identifier dimension = entity.getEntityWorld().getRegistryKey().getValue();
+        Identifier dimension = entity.getWorld().getRegistryKey().getValue();
 
         int voidLayer;
         int desiredLayer;

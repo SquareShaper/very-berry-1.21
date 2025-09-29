@@ -1,57 +1,55 @@
 package net.squareshaper.veryberry.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.component.type.TooltipDisplayComponent;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.squareshaper.veryberry.VeryBerry;
-import net.squareshaper.veryberry.item.AliasedEffectFoodItem;
-import net.squareshaper.veryberry.item.EffectFoodItem;
+import net.squareshaper.veryberry.component.EffectFoodComponent;
+import net.squareshaper.veryberry.component.TextDescriptionComponent;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
     //Berries
-    public static final Item RIMEBERRIES = registerItem("rimeberries", setting -> new AliasedEffectFoodItem(ModBlocks.RIMEBERRY_BUSH,
-            setting.food(ModFoodComponents.RIMEBERRIES, ModFoodComponents.RIMEBERRIES_EFFECT).useItemPrefixedTranslationKey()));
+    public static final Item RIMEBERRIES = registerItem("rimeberries", setting -> new BlockItem(ModBlocks.RIMEBERRY_BUSH,
+            setting.food(ModFoodComponents.RIMEBERRIES, ModFoodComponents.RIMEBERRIES_EFFECT).useItemPrefixedTranslationKey()
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())));
 
-    public static final Item FIRESHINE_BERRIES = registerItem("fireshine_berries", setting -> new AliasedEffectFoodItem(ModBlocks.FIRESHINE_BERRY_HEAD,
-            setting.food(ModFoodComponents.FIRESHINE_BERRIES, ModFoodComponents.FIRESHINE_BERRIES_EFFECT).useItemPrefixedTranslationKey()));
+    public static final Item FIRESHINE_BERRIES = registerItem("fireshine_berries", setting -> new BlockItem(ModBlocks.FIRESHINE_BERRY_HEAD,
+            setting.food(ModFoodComponents.FIRESHINE_BERRIES, ModFoodComponents.FIRESHINE_BERRIES_EFFECT).useItemPrefixedTranslationKey()
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())));
 
-    public static final Item VOIDBERRIES = registerItem("voidberries", setting -> new AliasedEffectFoodItem(ModBlocks.VOID_BERRY_MOSS,
-            setting.food(ModFoodComponents.VOIDBERRIES, ModFoodComponents.VOIDBERRIES_EFFECT).useItemPrefixedTranslationKey()));
+    public static final Item VOIDBERRIES = registerItem("voidberries", setting -> new BlockItem(ModBlocks.VOID_BERRY_MOSS,
+            setting.food(ModFoodComponents.VOIDBERRIES, ModFoodComponents.VOIDBERRIES_EFFECT).useItemPrefixedTranslationKey()
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())));
 
     //Remember to change the block back to ModBlocks.CHRONOBERRY_PLANT!
-    public static final Item CHRONOBERRIES = registerItem("chronoberries", setting -> new AliasedEffectFoodItem(ModBlocks.RIMEBERRY_BUSH,
-            setting.food(ModFoodComponents.CHRONOBERRIES, ModFoodComponents.CHRONOBERRIES_EFFECT).useItemPrefixedTranslationKey()));
+    public static final Item CHRONOBERRIES = registerItem("chronoberries", setting -> new BlockItem(ModBlocks.RIMEBERRY_BUSH,
+            setting.food(ModFoodComponents.CHRONOBERRIES, ModFoodComponents.CHRONOBERRIES_EFFECT).useItemPrefixedTranslationKey()
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())));
 
-    public static final Item THORNBERRIES = registerItem("thornberries", setting -> new AliasedEffectFoodItem(ModBlocks.THORNBERRY_BRANCH,
-            setting.food(ModFoodComponents.THORNBERRIES, ModFoodComponents.THORNBERRIES_EFFECT).useItemPrefixedTranslationKey()));
+    public static final Item THORNBERRIES = registerItem("thornberries", setting -> new BlockItem(ModBlocks.THORNBERRY_BRANCH,
+            setting.food(ModFoodComponents.THORNBERRIES, ModFoodComponents.THORNBERRIES_EFFECT).useItemPrefixedTranslationKey()
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())));
 
     //Berry Foods
     public static final Item FIRESHINE_BERRY_JUICE = registerItem("fireshine_berry_juice", setting -> new Item(
             setting.food(ModFoodComponents.FIRESHINE_BERRY_JUICE, ModFoodComponents.FIRESHINE_BERRY_JUICE_EFFECT)
-                    .useRemainder(Items.GLASS_BOTTLE)) {
-        @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
-            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
-            VeryBerry.addEffectTooltips(stack, context, displayComponent, textConsumer, type);
-            textConsumer.accept(Text.translatable("item.very-berry.fireshine_berry_juice.tooltip").formatted(Formatting.GRAY));
-        }
-    });
+                    .useRemainder(Items.GLASS_BOTTLE).component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())
+                    .component(ModDataComponentTypes.TEXT_DESCRIPTION, new TextDescriptionComponent("item.very-berry.fireshine_berry_juice.tooltip"))));
 
-    public static final Item RIMEBERRY_MUFFIN = registerItem("rimeberry_muffin", setting -> new EffectFoodItem(
-            setting.food(ModFoodComponents.RIMEBERRY_MUFFIN, ModFoodComponents.RIMEBERRY_MUFFIN_EFFECT).recipeRemainder(Items.BUCKET)));
+
+    public static final Item RIMEBERRY_MUFFIN = registerItem("rimeberry_muffin", setting -> new Item(
+            setting.food(ModFoodComponents.RIMEBERRY_MUFFIN, ModFoodComponents.RIMEBERRY_MUFFIN_EFFECT)
+                    .component(ModDataComponentTypes.EFFECT_FOOD, new EffectFoodComponent())
+                    .recipeRemainder(Items.BUCKET)
+                    .component(ModDataComponentTypes.TEXT_DESCRIPTION, new TextDescriptionComponent("item.very-berry.rimeberry_muffin.tooltip"))));
 
     //Pastes - WIP
 //    public static final Item FIRESHINE_BERRY_PASTE = registerItem("fireshine_berry_paste", setting -> new Item(setting));

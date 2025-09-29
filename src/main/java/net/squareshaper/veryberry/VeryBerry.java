@@ -1,6 +1,7 @@
 package net.squareshaper.veryberry;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.ComponentTooltipAppenderRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.TooltipDisplayComponent;
@@ -13,10 +14,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.squareshaper.veryberry.registry.ModBlocks;
-import net.squareshaper.veryberry.registry.ModEffects;
-import net.squareshaper.veryberry.registry.ModFoodComponents;
-import net.squareshaper.veryberry.registry.ModItems;
+import net.squareshaper.veryberry.registry.*;
 import net.squareshaper.veryberry.worldgen.ModBiomeModifiers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +43,9 @@ public class VeryBerry implements ModInitializer {
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.RIMEBERRIES, 0.3f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.FIRESHINE_BERRIES, 0.4f);
+
+		ComponentTooltipAppenderRegistry.addLast(ModDataComponentTypes.EFFECT_FOOD);
+		ComponentTooltipAppenderRegistry.addLast(ModDataComponentTypes.TEXT_DESCRIPTION);
 	}
 
 	public static String addZeroIfOneDigit(int number) {
@@ -109,7 +110,7 @@ public class VeryBerry implements ModInitializer {
 	public static void addEffectTooltips(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
 		List<ConsumeEffect> consumeEffects = stack.get(DataComponentTypes.CONSUMABLE).onConsumeEffects();
 
-		if (!consumeEffects.isEmpty()) {
+		if (consumeEffects != null && !consumeEffects.isEmpty()) {
 			for (ConsumeEffect consumeEffect : consumeEffects) {
 				if (consumeEffect instanceof ApplyEffectsConsumeEffect applyEffectsConsumeEffect) {
 					List<StatusEffectInstance> effects = applyEffectsConsumeEffect.effects();

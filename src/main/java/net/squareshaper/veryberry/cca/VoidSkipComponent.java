@@ -1,7 +1,7 @@
 package net.squareshaper.veryberry.cca;
 
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
 public class VoidSkipComponent implements AutoSyncedComponent {
@@ -33,14 +33,14 @@ public class VoidSkipComponent implements AutoSyncedComponent {
     }
 
     @Override
-    public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        this.counter = nbtCompound.getInt("Counter").orElse(0);
-        this.threshold = nbtCompound.getInt("Threshold").orElse(0);
+    public void readData(ReadView readView) {
+        this.counter = readView.getInt("Counter", 0);
+        this.threshold = readView.getInt("Threshold", 0);
     }
 
     @Override
-    public void writeToNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        nbtCompound.putInt("Counter", this.counter);
-        nbtCompound.putInt("Threshold", this.threshold);
+    public void writeData(WriteView writeView) {
+        writeView.putInt("Counter", this.counter);
+        writeView.putInt("Threshold", this.threshold);
     }
 }
