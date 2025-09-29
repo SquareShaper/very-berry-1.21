@@ -27,3 +27,7 @@ Fireshine berries as a trade in bartering?
 
 # Done
 new Fireshine Texture
+
+# TODO
+## BUGS
+Return effect not teleporting to proper position on rejoin

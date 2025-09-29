@@ -6,9 +6,9 @@ import net.minecraft.util.math.BlockPos;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
 public class ChronoBerryComponent implements AutoSyncedComponent {
-    private int x;
-    private int y;
-    private int z;
+    private int x = -1371;
+    private int y = -1371;
+    private int z = -1371;
 
     public int getX() {
         return x;
