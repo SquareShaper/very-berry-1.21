@@ -1,9 +1,8 @@
-// 1.21.4	-999999999-01-01T00:00:00	Very Berry/Model Definitions
+// 1.21.5	-999999999-01-01T00:00:00	Very Berry/Model Definitions
 f5c5fe3ddc703748693cf07cc29e6d62bb9bd73a assets/very-berry/blockstates/fireshine_berry_body.json
 fb76b28848dd869140616856dc38a258b73b53e6 assets/very-berry/blockstates/fireshine_berry_head.json
 22ad546f33c6e035d33dc94e8c237085fdf5ae58 assets/very-berry/blockstates/rimeberry_bush.json
 f240eea003bb5c85bed088f053f359c5fe756885 assets/very-berry/blockstates/thornberry_branch.json
-bcfd7a7495bf25b0231dc34dbe7e62a8c777cddf assets/very-berry/blockstates/voidberry_moss.json
 6f09bbff7561e9caddc55c6bc54d298e45ea7351 assets/very-berry/items/chronoberries.json
 f9a799468b0d812ba942fd719a02461a35d63eef assets/very-berry/items/fireshine_berries.json
 511e93f13d5f6dd76dd818df0c040a84044a4bed assets/very-berry/items/fireshine_berry_juice.json

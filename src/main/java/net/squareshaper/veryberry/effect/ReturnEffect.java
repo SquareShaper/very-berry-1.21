@@ -36,8 +36,13 @@ public class ReturnEffect extends StatusEffect {
         StatusEffectInstance returnEffect = entity.getStatusEffect(ModEffects.RETURN);
         if (returnEffect != null) {
             ChronoBerryComponent component = ModEntityComponents.CHRONO_BERRY.maybeGet(entity).orElse(null);
-            if (component != null && component.getPos().getY() != -1371) {
-                BlockPos pos = component.getPos();
+            if (component != null) {
+                BlockPos pos;
+                if (component.isUnset()) {
+                    pos = entity.getBlockPos();
+                } else {
+                    pos = component.getPos();
+                }
                 int duration = returnEffect.getDuration();
                 if (duration <= 1) {
                     entity.requestTeleport(pos.getX(), pos.getY(), pos.getZ());

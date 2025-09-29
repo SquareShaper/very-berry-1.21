@@ -34,8 +34,8 @@ public class VoidSkipComponent implements AutoSyncedComponent {
 
     @Override
     public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        this.counter = nbtCompound.getInt("Counter");
-        this.threshold = nbtCompound.getInt("Threshold");
+        this.counter = nbtCompound.getInt("Counter").orElse(0);
+        this.threshold = nbtCompound.getInt("Threshold").orElse(0);
     }
 
     @Override

@@ -5,7 +5,7 @@ import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.IntProvider;
@@ -33,7 +33,7 @@ public class ModConfiguredFeatures {
         RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 
         register(context, RIMEBERRY_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(
-                DataPool.<BlockState>builder().add(ModBlocks.RIMEBERRY_BUSH.getDefaultState(), 4)
+                Pool.<BlockState>builder().add(ModBlocks.RIMEBERRY_BUSH.getDefaultState(), 4)
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 1), 3)
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 2), 3)
                         .add(ModBlocks.RIMEBERRY_BUSH.getDefaultState().with(BerryBushBlock.AGE, 3), 2))));
@@ -43,13 +43,13 @@ public class ModConfiguredFeatures {
 
 
         WeightedBlockStateProvider fireShineWeightedBlockStateProvider = new WeightedBlockStateProvider(
-                DataPool.<BlockState>builder()
+                Pool.<BlockState>builder()
                         .add(ModBlocks.FIRESHINE_BERRY_BODY.getDefaultState(), 4)
                         .add(ModBlocks.FIRESHINE_BERRY_BODY.getDefaultState().with(NetherVines.BERRIES, true), 1));
 
         RandomizedIntBlockStateProvider fireShineRandomizedIntBlockStateProvider = new RandomizedIntBlockStateProvider(
                 new WeightedBlockStateProvider(
-                        DataPool.<BlockState>builder()
+                        Pool.<BlockState>builder()
                                 .add(ModBlocks.FIRESHINE_BERRY_HEAD.getDefaultState(), 4)
                                 .add(ModBlocks.FIRESHINE_BERRY_HEAD.getDefaultState().with(NetherVines.BERRIES, true), 1)
                 ),
@@ -61,7 +61,7 @@ public class ModConfiguredFeatures {
                 List.of(
                         BlockColumnFeatureConfig.createLayer(
                                 new WeightedListIntProvider(
-                                        DataPool.<IntProvider>builder()
+                                        Pool.<IntProvider>builder()
                                                 .add(UniformIntProvider.create(0, 70), 2)
                                                 .add(UniformIntProvider.create(0, 30), 3)
                                                 .add(UniformIntProvider.create(0, 10), 10)

@@ -3,10 +3,13 @@ package net.squareshaper.veryberry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.consume.ConsumeEffect;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -19,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import static java.lang.String.join;
 import static java.util.Collections.nCopies;
@@ -102,7 +106,7 @@ public class VeryBerry implements ModInitializer {
 		return output;
 	}
 
-	public static void addEffectTooltips(List<Text> tooltip, ItemStack stack) {
+	public static void addEffectTooltips(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
 		List<ConsumeEffect> consumeEffects = stack.get(DataComponentTypes.CONSUMABLE).onConsumeEffects();
 
 		if (!consumeEffects.isEmpty()) {
@@ -111,7 +115,7 @@ public class VeryBerry implements ModInitializer {
 					List<StatusEffectInstance> effects = applyEffectsConsumeEffect.effects();
 
 					for (StatusEffectInstance effect : effects) {
-						tooltip.add(Text.translatable("tooltip.very-berry.effect", Text.translatable(effect.getTranslationKey()),
+						textConsumer.accept(Text.translatable("tooltip.very-berry.effect", Text.translatable(effect.getTranslationKey()),
 								romanNumeralsOrEmpty(effect.getAmplifier()),
 								VeryBerry.tickToTime(effect.getDuration())).formatted(Formatting.BLUE));
 					}

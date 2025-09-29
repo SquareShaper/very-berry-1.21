@@ -6,19 +6,10 @@ import net.minecraft.util.math.BlockPos;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 
 public class ChronoBerryComponent implements AutoSyncedComponent {
-    private int x = -1371;
-    private int y = -1371;
-    private int z = -1371;
-
-    public int getX() {
-        return x;
-    }
-    public int getY() {
-        return y;
-    }
-    public int getZ() {
-        return z;
-    }
+    private int x = 0;
+    private int y = 0;
+    private int z = 0;
+    private boolean unset = true;
 
     public BlockPos getPos() {
         return new BlockPos(x,y,z);
@@ -30,11 +21,25 @@ public class ChronoBerryComponent implements AutoSyncedComponent {
         z = pos.getZ();
     }
 
+    public boolean isUnset() {
+        return unset;
+    }
+
+    public void setUnset(boolean unset) {
+        this.unset = unset;
+    }
+
     @Override
     public void readFromNbt(NbtCompound nbtCompound, RegistryWrapper.WrapperLookup wrapperLookup) {
-        this.x = nbtCompound.getInt("X");
-        this.x = nbtCompound.getInt("Y");
-        this.x = nbtCompound.getInt("Z");
+        if (nbtCompound.getInt("X").isPresent() && nbtCompound.getInt("Y").isPresent() && nbtCompound.getInt("Z").isPresent()) {
+            this.x = nbtCompound.getInt("X").get();
+            this.y = nbtCompound.getInt("Y").get();
+            this.z = nbtCompound.getInt("Z").get();
+            this.unset = false;
+        }
+        else {
+            this.unset = true;
+        }
     }
 
     @Override

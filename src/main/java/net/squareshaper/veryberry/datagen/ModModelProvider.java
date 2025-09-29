@@ -1,12 +1,16 @@
 package net.squareshaper.veryberry.datagen;
 
+
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.json.WeightedVariant;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.Identifier;
 import net.squareshaper.veryberry.registry.ModBlocks;
 import net.squareshaper.veryberry.registry.ModItems;
+
+import static net.minecraft.client.data.BlockStateModelGenerator.createBooleanModelMap;
+import static net.minecraft.client.data.BlockStateModelGenerator.createWeightedVariant;
 
 public class ModModelProvider extends FabricModelProvider {
 
@@ -16,38 +20,41 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.RIMEBERRY_BUSH)
-                .coordinate(BlockStateVariantMap.create(Properties.AGE_3).register(stage -> BlockStateVariant.create()
-                        .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.RIMEBERRY_BUSH,
-                                "_age" + stage, Models.CROSS, TextureMap::cross)))));
+        //Rimeberry Bush
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.RIMEBERRY_BUSH)
+                .with(BlockStateVariantMap.models(Properties.AGE_3).generate(stage -> createWeightedVariant(blockStateModelGenerator
+                        .createSubModel(ModBlocks.RIMEBERRY_BUSH, "_age" + stage, Models.CROSS, TextureMap::cross)))));
 
-        Identifier identifier = blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_HEAD, "", Models.CROSS, TextureMap::cross);
-        Identifier identifier2 = blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_HEAD, "_lit", Models.CROSS, TextureMap::cross);
-        blockStateModelGenerator.blockStateCollector
-                .accept(VariantsBlockStateSupplier.create(ModBlocks.FIRESHINE_BERRY_HEAD).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.BERRIES, identifier2, identifier)));
+        //Fireshine Berry Bottom
+        WeightedVariant weightedVariant = createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_HEAD,
+                "", Models.CROSS, TextureMap::cross));
+        WeightedVariant weightedVariant2 = createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_HEAD,
+                "_lit", Models.CROSS, TextureMap::cross));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.FIRESHINE_BERRY_HEAD).with(
+                createBooleanModelMap(Properties.BERRIES, weightedVariant2, weightedVariant)));
 
-        Identifier identifier3 = blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_BODY, "", Models.CROSS, TextureMap::cross);
-        Identifier identifier4 = blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_BODY, "_lit", Models.CROSS, TextureMap::cross);
-        blockStateModelGenerator.blockStateCollector
-                .accept(VariantsBlockStateSupplier.create(ModBlocks.FIRESHINE_BERRY_BODY).coordinate(BlockStateModelGenerator.createBooleanModelMap(Properties.BERRIES, identifier4, identifier3)));
+        //Fireshine Berry Body
+        WeightedVariant weightedVariant3 = createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_BODY,
+                "", Models.CROSS, TextureMap::cross));
+        WeightedVariant weightedVariant4 = createWeightedVariant(blockStateModelGenerator.createSubModel(ModBlocks.FIRESHINE_BERRY_BODY,
+                "_lit", Models.CROSS, TextureMap::cross));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.FIRESHINE_BERRY_BODY).with(
+                createBooleanModelMap(Properties.BERRIES, weightedVariant4, weightedVariant3)));
 
-        blockStateModelGenerator.blockStateCollector
-                .accept(
-                        VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_MOSS)
-                                .coordinate(
-                                        BlockStateVariantMap.create(Properties.AGE_3)
-                                                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage0")))
-                                                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage1")))
-                                                .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage2")))
-                                                .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage3")))
-                                )
-                                .coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
-                );
+        //Void Berry Moss - currently moved to blockstates folder, hard coded json
+//        blockStateModelGenerator.blockStateCollector
+//                .accept(VariantsBlockStateSupplier.create(ModBlocks.VOID_BERRY_MOSS)
+//                                .coordinate(BlockStateVariantMap.create(Properties.AGE_3)
+//                                                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage0")))
+//                                                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage1")))
+//                                                .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage2")))
+//                                                .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockSubModelId(ModBlocks.VOID_BERRY_MOSS, "_stage3")))
+//                                ).coordinate(BlockStateModelGenerator.createSouthDefaultHorizontalRotationStates())
+//                );
 
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.THORNBERRY_BRANCH)
-                .coordinate(BlockStateVariantMap.create(Properties.AGE_3).register(stage -> BlockStateVariant.create()
-                        .put(VariantSettings.MODEL, blockStateModelGenerator.createSubModel(ModBlocks.THORNBERRY_BRANCH,
-                                "_age" + stage, Models.CROSS, TextureMap::cross)))));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockModelDefinitionCreator.of(ModBlocks.THORNBERRY_BRANCH)
+                .with(BlockStateVariantMap.models(Properties.AGE_3).generate(stage -> createWeightedVariant(blockStateModelGenerator
+                        .createSubModel(ModBlocks.THORNBERRY_BRANCH, "_age" + stage, Models.CROSS, TextureMap::cross)))));
 
 //        BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(TallBerryBlock.AGE, Properties.DOUBLE_BLOCK_HALF).register((age, half) -> {
 //            return switch (half) {
